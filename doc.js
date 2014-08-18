@@ -15,19 +15,25 @@ function docType(T, index, pkg) {
 
   function getUri(T) {
     var name = getName(T);
-    return pkg ? format('%s.%s', pkg, name) : name;    
+    return pkg.concat(name).join('.');    
   }
   
-  var name = getName(T);
+  function getNames(T) {
+    return {
+      name: getName(T),
+      uri: getUri(T) 
+    };
+  }
+
   var uri = getUri(T);
-  var kind = T.meta.kind;
   
   if (!index.hasOwnProperty(uri)) {
     
+    var kind = T.meta.kind;
     var json = index[uri] = {
       kind: kind,
       uri: uri,
-      name: name
+      name: getName(T)
     };
 
     var A;
@@ -38,10 +44,7 @@ function docType(T, index, pkg) {
         json.props = {};
         Object.keys(T.meta.props).forEach(function (k) {
           A = T.meta.props[k];
-          json.props[k] = {
-            name: getName(A),
-            uri: getUri(A) 
-          };
+          json.props[k] = getNames(A);
           recurse(A);
         });
         break;
@@ -49,10 +52,7 @@ function docType(T, index, pkg) {
       case 'subtype' :
       case 'list' :
         A = T.meta.type;
-        json.type = {
-          name: getName(A),
-          uri: getUri(A) 
-        };
+        json.type = getNames(A);
         recurse(A);
         break;
       case 'enums' :
@@ -62,15 +62,13 @@ function docType(T, index, pkg) {
       case 'union' :
         json.types = [];
         T.meta.types.forEach(function (A) {
-          json.types.push({
-          name: getName(A),
-          uri: getUri(A) 
-          });
+          console.log(A);
+          json.types.push(getNames(A));
           recurse(A);
         });
         break;
       default :
-        throw new Error(format('unknown type %s', getName(T)));
+        throw new Error(format('unknown kind %s', getName(T)));
     }
 
   }
@@ -78,13 +76,13 @@ function docType(T, index, pkg) {
 }
 
 function doc(domain, pkg, index) {
-  pkg = pkg || '';
+  pkg = pkg || [];
   index = index || {};
   for (var k in domain) {
     if (domain.hasOwnProperty(k)) {
       var value = domain[k];
       if (t.Obj.is(value)) {
-        doc(value, index, format('%s.%s', pkg, k));
+        doc(value, index, pkg.concat(k));
       } else if (t.isType(value)) {
         docType(domain[k], index, pkg);
       } else {
@@ -95,13 +93,4 @@ function doc(domain, pkg, index) {
   return index;
 }
 
-var Point = t.struct({x: t.Num, y: t.Num}, 'Point');
-var Path = t.list(Point, 'Path');
-var PointOrPath = t.union([Point, Path], 'PointOrPath');
-
-var domain = {
-  Point: Point,
-  Path: Path
-};
-console.log(JSON.stringify(doc(domain), null, 2));
-
+module.exports = doc;
