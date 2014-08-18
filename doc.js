@@ -4,6 +4,24 @@ var getName = t.getName;
 var assert = t.assert;
 var format = t.format;
 
+function doc(domain, pkg, index) {
+  pkg = pkg || [];
+  index = index || {};
+  for (var k in domain) {
+    if (domain.hasOwnProperty(k)) {
+      var value = domain[k];
+      if (t.Obj.is(value)) {
+        doc(value, index, pkg.concat(k));
+      } else if (t.isType(value)) {
+        docType(domain[k], index, pkg);
+      } else {
+        throw new Error(format('unknown value %j', value));
+      }
+    }
+  }
+  return index;
+}
+
 function docType(T, index, pkg) {
 
   assert(t.isType(T), 'bad type %j', T);
@@ -73,24 +91,6 @@ function docType(T, index, pkg) {
 
   }
 
-}
-
-function doc(domain, pkg, index) {
-  pkg = pkg || [];
-  index = index || {};
-  for (var k in domain) {
-    if (domain.hasOwnProperty(k)) {
-      var value = domain[k];
-      if (t.Obj.is(value)) {
-        doc(value, index, pkg.concat(k));
-      } else if (t.isType(value)) {
-        docType(domain[k], index, pkg);
-      } else {
-        throw new Error(format('unknown value %j', value));
-      }
-    }
-  }
-  return index;
 }
 
 module.exports = doc;
