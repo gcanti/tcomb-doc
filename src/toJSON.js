@@ -4,7 +4,7 @@ var getName = t.getName;
 var assert = t.assert;
 var format = t.format;
 
-function doc(domain, pkg, index) {
+function toJSON(domain, pkg, index) {
   pkg = pkg || [];
   index = index || {};
   for (var k in domain) {
@@ -13,7 +13,7 @@ function doc(domain, pkg, index) {
       if (t.Obj.is(value)) {
         doc(value, index, pkg.concat(k));
       } else if (t.isType(value)) {
-        docType(domain[k], index, pkg);
+        typeToJSON(domain[k], index, pkg);
       } else {
         throw new Error(format('unknown value %j', value));
       }
@@ -22,13 +22,13 @@ function doc(domain, pkg, index) {
   return index;
 }
 
-function docType(T, index, pkg) {
+function typeToJSON(T, index, pkg) {
 
   assert(t.isType(T), 'bad type %j', T);
   assert(t.Obj.is(index));
 
   function recurse(T) {
-    docType(T, index, pkg);    
+    typeToJSON(T, index, pkg);    
   }
 
   function getUri(T) {
@@ -93,4 +93,4 @@ function docType(T, index, pkg) {
 
 }
 
-module.exports = doc;
+module.exports = toJSON;
