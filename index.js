@@ -1,4 +1,5 @@
 module.exports = {
-  toJSON: require('./src/toJSON'),
-  toMarkdown: require('./src/toMarkdown')
+  domain: require('./src/domain'),
+  parse: require('./src/parser'),
+  formatMarkdown: require('./src/formatMarkdown')
 };

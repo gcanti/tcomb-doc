@@ -5,80 +5,128 @@ Documentation tool for tcomb (proof of concept)
 
 # Api
 
-## doc(domain, [pkg], [index])
+## parse(module)
 
-Returns a JSON describing all types found in `domain`.
+Returns a `Doc` class describing all types found in `module`.
 
 Example
 
 ```javascript
-var Point = struct({
-  x: Num, 
-  y: Num
+var t = require('tcomb');
+var doc = require('../index');
+
+var Point = t.struct({
+  x: t.Num, 
+  y: t.Num
 }, 'Point');
 
-var Path = list(Point, 'Path');
+var Path = t.list(Point, 'Path');
 
 module.exports = {
   Point: Point,
   Path: Path
 };
 
-var index = doc(module.exports);
-console.log(index);
+var result = doc.parse(module.exports);
+var json = result.toJSON();
+console.log(JSON.stringify(json, null, 2));
 ```
 
 ```json
-{
-  "Point": {
+[
+  {
     "kind": "struct",
-    "uri": "Point",
     "name": "Point",
-    "props": {
-      "x": {
-        "name": "Num",
-        "uri": "Num"
+    "props": [
+      {
+        "name": "x",
+        "type": "Num"
       },
-      "y": {
-        "name": "Num",
-        "uri": "Num"
+      {
+        "name": "y",
+        "type": "Num"
       }
-    }
+    ]
   },
-  "Num": {
-    "kind": "primitive",
-    "uri": "Num",
-    "name": "Num"
-  },
-  "Path": {
+  {
     "kind": "list",
-    "uri": "Path",
     "name": "Path",
-    "type": {
-      "name": "Point",
-      "uri": "Point"
-    }
+    "type": "Point"
   }
-}
+]
 ```
+## formatMarkdown(json)
 
-```javascript
-console.log(toMarkdown(index));
-```
+Translates the JSON format to markdown.
 
-```markdown
-# <a name="Num"/>Num
+Example
 
-Primitive.
+This is the output of `formatMarkdown` applied to the library itself:
 
-# <a name="Path"/>Path
-
-List of: [Point](#Point)
-
-# <a name="Point"/>Point
+# Result
 
 Props:
 
-- x: [Num](#Num)
-- y: [Num](#Num)
-```
+- `types`: `list(Type)`
+
+# Type
+
+`union(Struct, Enums, List, Maybe, Subtype, Tuple, Union)`
+
+# Struct
+
+Props:
+
+- `name`: `Str`
+- `props`: `list(Prop)`
+
+# Enums
+
+Props:
+
+- `name`: `Str`
+- `enums`: `Obj`
+
+# List
+
+Props:
+
+- `name`: `Str`
+- `type`: `Str`
+
+# Maybe
+
+Props:
+
+- `name`: `Str`
+- `type`: `Str`
+
+# Subtype
+
+Props:
+
+- `name`: `Str`
+- `type`: `Str`
+
+# Tuple
+
+Props:
+
+- `name`: `Str`
+- `types`: `list(Str)`
+
+# Union
+
+Props:
+
+- `name`: `Str`
+- `types`: `list(Str)`
+
+# Prop
+
+Props:
+
+- `name`: `Str`
+- `type`: `Str`
+
+
