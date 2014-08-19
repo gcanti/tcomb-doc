@@ -9,6 +9,7 @@ var isType = t.isType;
 var getName = t.getName;
 
 function isNamed(name) {
+  // TODO: better test
   return !/^[a-z]/.test(name);
 }
 
@@ -29,7 +30,7 @@ function parseType(T, index) {
   if (!isType(T)) { return; }
   var name = getName(T);
   var kind = T.meta.kind;
-  // exclude anonymous types, primitives, any and types already parsed
+  // exclude anonymous types, primitives, any and all types already indexed
   if (kind === 'primitive' || kind === 'any' || index.hasOwnProperty(name)) { return; }
   switch(kind) {
     case 'enums' :
