@@ -13,7 +13,8 @@ function h2(s) {
 }
 
 function p(s) {
-  return format('%s\n\n', s);
+  var args = Array.prototype.slice.call(arguments, 1);
+  return format.apply(null, [s + '\n\n'].concat(args));
 }
 
 function ul(lis) {
@@ -30,31 +31,35 @@ function formatMarkdown(json) {
     md += h1(name);
     switch(kind) {
       case 'struct' :
-        md += p('Props:');
-        md += ul(type.props.sort().map(function (prop) {
-          return format('`%s`: `%s`', prop.name, prop.type);
-        }));
+        if (type.props.length) {
+          md += p('`%s` is a `struct` with the following props:', name);
+          md += ul(type.props.sort().map(function (prop) {
+            return format('`%s`: `%s`', prop.name, prop.type);
+          }));
+        } else {
+          md += p('`%s` is a `struct` with no props.', name);
+        }
         break;
       case 'maybe' :
-        md += p(format('`maybe(%s)`', type.type));
+        md += p('`%s` is a `maybe(%s)`', name, type.type);
         break;
       case 'subtype' :
-        md += p(format('`%s` is a `subtype` of `%s` such that: %s', name, type.type, type.predicate));
+        md += p('`%s` is a `subtype` of `%s` such that: %s', name, type.type, type.predicate);
         break;
       case 'list' :
-        md += p(format('`list(%s)`', type.type));
+        md += p('`%s` is a `list` of `%s`', name, type.type);
         break;
       case 'enums' :
-        md += p('Enums:');
+        md += p('`%s` is an `enums` of:', name);
         md += ul(Object.keys(type.enums).sort().map(function (k) {
-          return format('`%s`: `%j`', k, type.enums[k]);
+          return format('`"%s"`: `%j`', k, type.enums[k]);
         }));
         break;
       case 'tuple' :
-        md += p(format('`list(%s)`', type.types.join(', ')));
+        md += p('`%s` is a `tuple` of `%s`', name, type.types.join(', '));
         break;
       case 'union' :
-        md += p(format('`union(%s)`', type.types.join(', ')));
+        md += p('`%s` is a `union` of `%s`', name, type.types.join(', '));
         break;
       default :
         throw new Error(format('unknown kind %s', kind));
