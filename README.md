@@ -9,8 +9,6 @@ For now the best example I can show you is the generated documentation of [tcomb
 
 [output of `formatMarkdown` applied to tcomb-react-bootstrap domain model](examples/tcomb-react-bootstrap.md)
 
-**disclaimer**: tcomb-react-bootstrap is under heavy development so actually only a part of the components properties are documented.
-
 ## How it works
 
 tcomb-doc parses a domain model written with tcomb and outputs a JSON representation of all types it can find.
