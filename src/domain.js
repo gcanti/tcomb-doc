@@ -76,7 +76,7 @@ var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union], 'Type');
 
 var Doc = struct({
   types: list(Type)
-}, 'Result');
+}, 'Doc');
 
 Doc.prototype.toJSON = function (result) {
   return this.types.map(function (type) {
