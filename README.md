@@ -9,7 +9,7 @@ For now the best example I can show you is the generated documentation of [tcomb
 
 [output of `formatMarkdown` applied to tcomb-react-bootstrap domain model](examples/tcomb-react-bootstrap.md)
 
-**disclaimer**: tcomb-react-bootstrap is under heavy development so for now only the `Alert` component is documented.
+**disclaimer**: tcomb-react-bootstrap is under heavy development so actually only a part of the components properties are documented.
 
 ## How it works
 

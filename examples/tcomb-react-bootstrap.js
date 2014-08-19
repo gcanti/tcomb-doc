@@ -1,9 +1,6 @@
 var t = require('tcomb');
 var doc = require('../index');
-var Alert = require('../../tcomb-react-bootstrap/index').Alert;
-var domain = {
-  Alert: Alert.Config
-};
+var domain = require('../../tcomb-react-bootstrap/index').domain;
 
 var result = doc.parse(domain);
 var json = result.toJSON();
