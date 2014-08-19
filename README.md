@@ -13,7 +13,7 @@ Example
 
 ```javascript
 var t = require('tcomb');
-var doc = require('../index');
+var doc = require('tcomb-doc');
 
 var Point = t.struct({
   x: t.Num, 
@@ -63,5 +63,3 @@ Examples
 
 - [the output of `formatMarkdown` applied to the library itself](examples/dogfood.md)
 - [the output of `formatMarkdown` applied to tcomb-react-bootstrap bindings](examples/tcomb-react-bootstrap.md)
-
-This is the output of `formatMarkdown` applied to the library itself:
