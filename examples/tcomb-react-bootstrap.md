@@ -2,6 +2,12 @@
 
 Props:
 
+
+
+# Affix
+
+Props:
+
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
@@ -52,14 +58,6 @@ Enums:
 - `small`: `"sm"`
 - `xsmall`: `"xs"`
 
-# Affix
-
-Props:
-
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-
 # Alert
 
 `Alert` is a `subtype` of `UncheckedAlert` such that: Properties onDismiss and dismissAfter must be both defined or both missing
@@ -85,14 +83,14 @@ Props:
 
 Props:
 
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `block`: `maybe(Bool)`
 - `navItem`: `maybe(Bool)`
 - `navDropdown`: `maybe(Bool)`
+- `bsClass`: `maybe(BsClass)`
+- `bsStyle`: `maybe(BsStyle)`
+- `bsSize`: `maybe(BsSize)`
 
 # ButtonGroup
 
@@ -274,14 +272,26 @@ Props:
 
 Props:
 
+- `header`: `Any`
+- `footer`: `Any`
+- `onClick`: `maybe(Func)`
+- `key`: `union(Str, Num)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `collapsable`: `maybe(Bool)`
+- `defaultExpanded`: `maybe(Bool)`
+- `expanded`: `maybe(Bool)`
 
 # PanelGroup
 
 Props:
 
+- `collapsable`: `maybe(Bool)`
+- `activeKey`: `Any`
+- `defaultActiveKey`: `Any`
+- `onSelect`: `maybe(Func)`
+- `accordion`: `maybe(Bool)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
