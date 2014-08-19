@@ -5,9 +5,9 @@ Documentation tool for tcomb (proof of concept)
 
 ## Show me the best you can
 
-For now the best example I can show you is the generated documentation of [tcomb-react-bootstrap](https://github.com/gcanti/tcomb-react-bootstrap), which is an attempt to add type safety to the awesome project [React Bootstrap](http://react-bootstrap.github.io).
+For now the best example I can show you is the generated documentation of [tcomb-react-bootstrap](https://github.com/gcanti/tcomb-react-bootstrap), which is an attempt to add type safety to the awesome project [React Bootstrap](http://react-bootstrap.github.io):
 
-[output of `formatMarkdown` applied to tcomb-react-bootstrap domain model](examples/tcomb-react-bootstrap.md)
+[output](examples/tcomb-react-bootstrap.md) of `formatMarkdown` applied to tcomb-react-bootstrap domain model
 
 ## How it works
 
