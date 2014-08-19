@@ -8,6 +8,7 @@ var enums = t.enums;
 var struct = t.struct;
 var union = t.union;
 var list = t.list;
+var maybe = t.maybe;
 var mixin = t.mixin;
 
 function toJSON(kind) {
@@ -51,7 +52,8 @@ Struct.prototype.toJSON = toJSON('struct');
 
 var Subtype = struct({
   name: Str,
-  type: Str
+  type: Str,
+  predicate: maybe(Str)
 }, 'Subtype');
 
 Subtype.prototype.toJSON = toJSON('subtype');

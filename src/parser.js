@@ -30,7 +30,7 @@ function parseType(T, index) {
   var name = getName(T);
   var kind = T.meta.kind;
   // exclude anonymous types, primitives, any and types already parsed
-  if (!isNamed(name) || kind === 'primitive' || kind === 'any' || index.hasOwnProperty(name)) { return; }
+  if (kind === 'primitive' || kind === 'any' || index.hasOwnProperty(name)) { return; }
   switch(kind) {
     case 'enums' :
       index[name] = domain.Enums({
@@ -39,17 +39,21 @@ function parseType(T, index) {
       });
       break;
     case 'list' :
-      index[name] = domain.List({
-        name: name,
-        type: getName(T.meta.type)
-      });
+      if (isNamed(name)) {
+        index[name] = domain.List({
+          name: name,
+          type: getName(T.meta.type)
+        });
+      }
       parseType(T.meta.type, index);
       break;
     case 'maybe' :
-      index[name] = domain.Maybe({
-        name: name,
-        type: getName(T.meta.type)
-      });
+      if (isNamed(name)) {
+        index[name] = domain.Maybe({
+          name: name,
+          type: getName(T.meta.type)
+        });
+      }
       parseType(T.meta.type, index);
       break;
     case 'struct' :
@@ -67,26 +71,33 @@ function parseType(T, index) {
       });
       break;
     case 'subtype' :
-      index[name] = domain.Subtype({
-        name: name,
-        type: getName(T.meta.type)
-      });
+      if (isNamed(name)) {
+        index[name] = domain.Subtype({
+          name: name,
+          type: getName(T.meta.type),
+          predicate: T.meta.predicate.__doc__ || T.meta.predicate.name || 'function'
+        });
+      }
       parseType(T.meta.type, index);
       break;
     case 'tuple' :
-      index[name] = domain.Tuple({
-        name: name,
-        types: T.meta.types.map(getName)
-      });
+      if (isNamed(name)) {
+        index[name] = domain.Tuple({
+          name: name,
+          types: T.meta.types.map(getName)
+        });
+      }
       T.meta.types.forEach(function (T) {
         parseType(T, index);
       });
       break;
     case 'union' :
-      index[name] = domain.Union({
-        name: name,
-        types: T.meta.types.map(getName)
-      });
+      if (isNamed(name)) {
+        index[name] = domain.Union({
+          name: name,
+          types: T.meta.types.map(getName)
+        });
+      }
       T.meta.types.forEach(function (T) {
         parseType(T, index);
       });

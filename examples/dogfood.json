@@ -1,0 +1,137 @@
+[
+  {
+    "kind": "struct",
+    "name": "Result",
+    "props": [
+      {
+        "name": "types",
+        "type": "list(Type)"
+      }
+    ]
+  },
+  {
+    "kind": "union",
+    "name": "Type",
+    "types": [
+      "Struct",
+      "Enums",
+      "List",
+      "Maybe",
+      "Subtype",
+      "Tuple",
+      "Union"
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Struct",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "props",
+        "type": "list(Prop)"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Prop",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "type",
+        "type": "Str"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Enums",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "enums",
+        "type": "Obj"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "List",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "type",
+        "type": "Str"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Maybe",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "type",
+        "type": "Str"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Subtype",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "type",
+        "type": "Str"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Tuple",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "types",
+        "type": "list(Str)"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Union",
+    "props": [
+      {
+        "name": "name",
+        "type": "Str"
+      },
+      {
+        "name": "types",
+        "type": "list(Str)"
+      }
+    ]
+  }
+]

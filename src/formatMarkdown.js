@@ -25,8 +25,9 @@ function ul(lis) {
 function formatMarkdown(json) {
   var md = '';
   json.forEach(function (type) {
-    var kind = type.kind
-    md += h1(type.name);
+    var kind = type.kind;
+    var name = type.name;
+    md += h1(name);
     switch(kind) {
       case 'struct' :
         md += p('Props:');
@@ -38,15 +39,15 @@ function formatMarkdown(json) {
         md += p(format('`maybe(%s)`', type.type));
         break;
       case 'subtype' :
-        md += p(format('`subtype(%s)`', type.type));
+        md += p(format('`%s` is a `subtype` of `%s` such that: %s', name, type.type, type.predicate));
         break;
       case 'list' :
         md += p(format('`list(%s)`', type.type));
         break;
       case 'enums' :
         md += p('Enums:');
-        md += ul(Object.keys(type.map).sort().map(function (k) {
-          return format('`%s`: `%j`', k, type.map[k]);
+        md += ul(Object.keys(type.enums).sort().map(function (k) {
+          return format('`%s`: `%j`', k, type.enums[k]);
         }));
         break;
       case 'tuple' :
