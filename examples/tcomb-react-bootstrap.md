@@ -12,16 +12,13 @@
 
 # Alert
 
-`Alert` is a `subtype` of `UncheckedAlert` such that: Properties onDismiss and dismissAfter must be both defined or both missing
+`Alert` is a `struct` with the following props:
 
-# UncheckedAlert
-
-`UncheckedAlert` is a `struct` with the following props:
-
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
 - `onDismiss`: `maybe(Func)`
 - `dismissAfter`: `maybe(Num)`
+- `bsClass`: `maybe(BsClass)`
+- `bsStyle`: `maybe(BsStyle)`
+- `bsSize`: `maybe(BsSize)`
 
 # BsClass
 
@@ -60,6 +57,15 @@
 - `"tabs"`: `"tabs"`
 - `"warning"`: `"warning"`
 
+# BsSize
+
+`BsSize` is an `enums` of:
+
+- `"large"`: `"lg"`
+- `"medium"`: `"md"`
+- `"small"`: `"sm"`
+- `"xsmall"`: `"xs"`
+
 # Badge
 
 `Badge` is a `struct` with the following props:
@@ -78,15 +84,6 @@
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
-
-# BsSize
-
-`BsSize` is an `enums` of:
-
-- `"large"`: `"lg"`
-- `"medium"`: `"md"`
-- `"small"`: `"sm"`
-- `"xsmall"`: `"xs"`
 
 # ButtonGroup
 
@@ -418,21 +415,36 @@
 
 `Input` is a `struct` with the following props:
 
-- `groupClassName`: `maybe(Str)`
-- `type`: `maybe(Str)`
+- `labelClassName`: `maybe(Str)`
+- `type`: `InputType`
 - `help`: `maybe(Any)`
 - `addonBefore`: `maybe(Any)`
 - `addonAfter`: `maybe(Any)`
 - `bsStyle`: `maybe(InputStyle)`
 - `hasFeedback`: `maybe(Bool)`
-- `label`: `maybe(Any)`
+- `groupClassName`: `maybe(Str)`
 - `wrapperClassName`: `maybe(Str)`
-- `labelClassName`: `maybe(Str)`
+- `label`: `maybe(Any)`
 - `checked`: `maybe(Bool)`
 - `readOnly`: `maybe(Bool)`
 - `multiple`: `maybe(Bool)`
 - `value`: `maybe(Str)`
 - `defaultValue`: `maybe(Str)`
+- `ref`: `maybe(Str)`
+- `onClick`: `maybe(Func)`
+- `onChange`: `maybe(Func)`
+
+# InputType
+
+`InputType` is an `enums` of:
+
+- `"checkbox"`: `2`
+- `"password"`: `1`
+- `"radio"`: `3`
+- `"select"`: `4`
+- `"static"`: `6`
+- `"text"`: `0`
+- `"textarea"`: `5`
 
 # InputStyle
 
@@ -657,9 +669,9 @@
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
 
-# ProgessBar
+# ProgressBar
 
-`ProgessBar` is a `struct` with the following props:
+`ProgressBar` is a `struct` with the following props:
 
 - `min`: `maybe(Num)`
 - `now`: `maybe(Num)`

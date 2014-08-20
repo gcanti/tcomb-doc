@@ -4,6 +4,7 @@
   "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
+    "build": "browserify index.js -o build/tcomb-doc.js -s TcombDoc -x tcomb"
   },
   "repository": {
     "type": "git",

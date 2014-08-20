@@ -1,6 +1,10 @@
 var t = require('tcomb');
 var doc = require('../index');
-var domain = require('../../tcomb-react-bootstrap/index').domain;
+var components = require('../../tcomb-react-bootstrap/index');
+var domain = {};
+Object.keys(components).forEach(function (c) {
+  domain[c] = components[c].Model;
+});
 
 var result = doc.parse(domain);
 var json = result.toJSON();
