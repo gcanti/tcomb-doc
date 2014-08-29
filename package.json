@@ -4,7 +4,6 @@
   "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js -o build/tcomb-doc.js -s TcombDoc -x tcomb"
   },
   "repository": {
     "type": "git",
@@ -17,7 +16,7 @@
   },
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "dependencies": {
-    "tcomb": "*"
+    "tcomb": "~0.0.12"
   },
   "tags": [
     "tcomb",
