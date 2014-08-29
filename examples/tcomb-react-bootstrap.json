@@ -1,13 +1,60 @@
 [
   {
-    "kind": "subtype",
-    "name": "Alert",
-    "type": "$Alert"
+    "kind": "struct",
+    "name": "Accordion",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "__name__",
+        "type": "Accordion"
+      }
+    ]
   },
   {
     "kind": "struct",
-    "name": "$Alert",
+    "name": "Affix",
     "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "offset",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "offsetTop",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "offsetBottom",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "__name__",
+        "type": "Affix"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Alert",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "onDismiss",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "dismissAfter",
+        "type": "maybe(Num)"
+      },
       {
         "name": "bsClass",
         "type": "maybe(BsClass)"
@@ -21,12 +68,8 @@
         "type": "maybe(BsSize)"
       },
       {
-        "name": "onDismiss",
-        "type": "maybe(Func)"
-      },
-      {
-        "name": "dismissAfter",
-        "type": "maybe(Num)"
+        "name": "__name__",
+        "type": "Alert"
       }
     ]
   },
@@ -78,5 +121,1761 @@
       "small": "sm",
       "xsmall": "xs"
     }
+  },
+  {
+    "kind": "struct",
+    "name": "Badge",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "pullRight",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "__name__",
+        "type": "Badge"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Button",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "active",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "disabled",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "block",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "navItem",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "navDropdown",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Button"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "ButtonGroup",
+    "props": [
+      {
+        "name": "children",
+        "type": "list(Button)"
+      },
+      {
+        "name": "vertical",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "justified",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "ButtonGroup"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "ButtonToolbar",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "ButtonToolbar"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Carousel",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "slide",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "indicators",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "controls",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "pauseOnHover",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "wrap",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "onSlideEnd",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "activeIndex",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "defaultActiveIndex",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "direction",
+        "type": "maybe(Direction)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Carousel"
+      }
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "Direction",
+    "enums": {
+      "prev": "prev",
+      "next": "next"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "CarouselItem",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "direction",
+        "type": "maybe(Direction)"
+      },
+      {
+        "name": "onAnimateOutEnd",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "active",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "caption",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "__name__",
+        "type": "CarouselItem"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Col",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "xs",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "sm",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "md",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "lg",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "xsOffset",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "smOffset",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "mdOffset",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "lgOffset",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "xsPush",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "smPush",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "mdPush",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "lgPush",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "xsPull",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "smPull",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "mdPull",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "lgPull",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "className",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "__name__",
+        "type": "Col"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "DropdownButton",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "pullRight",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "dropup",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "onClick",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "navItem",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "key",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "DropdownButton"
+      }
+    ]
+  },
+  {
+    "kind": "union",
+    "name": "Key",
+    "types": [
+      "Str",
+      "Num"
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "DropdownMenu",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "pullRight",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "__name__",
+        "type": "DropdownMenu"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Glyphicon",
+    "props": [
+      {
+        "name": "glyph",
+        "type": "Glyph"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Glyphicon"
+      }
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "Glyph",
+    "enums": {
+      "asterisk": "asterisk",
+      "plus": "plus",
+      "euro": "euro",
+      "minus": "minus",
+      "cloud": "cloud",
+      "envelope": "envelope",
+      "pencil": "pencil",
+      "glass": "glass",
+      "music": "music",
+      "search": "search",
+      "heart": "heart",
+      "star": "star",
+      "star-empty": "star-empty",
+      "user": "user",
+      "film": "film",
+      "th-large": "th-large",
+      "th": "th",
+      "th-list": "th-list",
+      "ok": "ok",
+      "remove": "remove",
+      "zoom-in": "zoom-in",
+      "zoom-out": "zoom-out",
+      "off": "off",
+      "signal": "signal",
+      "cog": "cog",
+      "trash": "trash",
+      "home": "home",
+      "file": "file",
+      "time": "time",
+      "road": "road",
+      "download-alt": "download-alt",
+      "download": "download",
+      "upload": "upload",
+      "inbox": "inbox",
+      "play-circle": "play-circle",
+      "repeat": "repeat",
+      "refresh": "refresh",
+      "list-alt": "list-alt",
+      "lock": "lock",
+      "flag": "flag",
+      "headphones": "headphones",
+      "volume-off": "volume-off",
+      "volume-down": "volume-down",
+      "volume-up": "volume-up",
+      "qrcode": "qrcode",
+      "barcode": "barcode",
+      "tag": "tag",
+      "tags": "tags",
+      "book": "book",
+      "bookmark": "bookmark",
+      "print": "print",
+      "camera": "camera",
+      "font": "font",
+      "bold": "bold",
+      "italic": "italic",
+      "text-height": "text-height",
+      "text-width": "text-width",
+      "align-left": "align-left",
+      "align-center": "align-center",
+      "align-right": "align-right",
+      "align-justify": "align-justify",
+      "list": "list",
+      "indent-left": "indent-left",
+      "indent-right": "indent-right",
+      "facetime-video": "facetime-video",
+      "picture": "picture",
+      "map-marker": "map-marker",
+      "adjust": "adjust",
+      "tint": "tint",
+      "edit": "edit",
+      "share": "share",
+      "check": "check",
+      "move": "move",
+      "step-backward": "step-backward",
+      "fast-backward": "fast-backward",
+      "backward": "backward",
+      "play": "play",
+      "pause": "pause",
+      "stop": "stop",
+      "forward": "forward",
+      "fast-forward": "fast-forward",
+      "step-forward": "step-forward",
+      "eject": "eject",
+      "chevron-left": "chevron-left",
+      "chevron-right": "chevron-right",
+      "plus-sign": "plus-sign",
+      "minus-sign": "minus-sign",
+      "remove-sign": "remove-sign",
+      "ok-sign": "ok-sign",
+      "question-sign": "question-sign",
+      "info-sign": "info-sign",
+      "screenshot": "screenshot",
+      "remove-circle": "remove-circle",
+      "ok-circle": "ok-circle",
+      "ban-circle": "ban-circle",
+      "arrow-left": "arrow-left",
+      "arrow-right": "arrow-right",
+      "arrow-up": "arrow-up",
+      "arrow-down": "arrow-down",
+      "share-alt": "share-alt",
+      "resize-full": "resize-full",
+      "resize-small": "resize-small",
+      "exclamation-sign": "exclamation-sign",
+      "gift": "gift",
+      "leaf": "leaf",
+      "fire": "fire",
+      "eye-open": "eye-open",
+      "eye-close": "eye-close",
+      "warning-sign": "warning-sign",
+      "plane": "plane",
+      "calendar": "calendar",
+      "random": "random",
+      "comment": "comment",
+      "magnet": "magnet",
+      "chevron-up": "chevron-up",
+      "chevron-down": "chevron-down",
+      "retweet": "retweet",
+      "shopping-cart": "shopping-cart",
+      "folder-close": "folder-close",
+      "folder-open": "folder-open",
+      "resize-vertical": "resize-vertical",
+      "resize-horizontal": "resize-horizontal",
+      "hdd": "hdd",
+      "bullhorn": "bullhorn",
+      "bell": "bell",
+      "certificate": "certificate",
+      "thumbs-up": "thumbs-up",
+      "thumbs-down": "thumbs-down",
+      "hand-right": "hand-right",
+      "hand-left": "hand-left",
+      "hand-up": "hand-up",
+      "hand-down": "hand-down",
+      "circle-arrow-right": "circle-arrow-right",
+      "circle-arrow-left": "circle-arrow-left",
+      "circle-arrow-up": "circle-arrow-up",
+      "circle-arrow-down": "circle-arrow-down",
+      "globe": "globe",
+      "wrench": "wrench",
+      "tasks": "tasks",
+      "filter": "filter",
+      "briefcase": "briefcase",
+      "fullscreen": "fullscreen",
+      "dashboard": "dashboard",
+      "paperclip": "paperclip",
+      "heart-empty": "heart-empty",
+      "link": "link",
+      "phone": "phone",
+      "pushpin": "pushpin",
+      "usd": "usd",
+      "gbp": "gbp",
+      "sort": "sort",
+      "sort-by-alphabet": "sort-by-alphabet",
+      "sort-by-alphabet-alt": "sort-by-alphabet-alt",
+      "sort-by-order": "sort-by-order",
+      "sort-by-order-alt": "sort-by-order-alt",
+      "sort-by-attributes": "sort-by-attributes",
+      "sort-by-attributes-alt": "sort-by-attributes-alt",
+      "unchecked": "unchecked",
+      "expand": "expand",
+      "collapse-down": "collapse-down",
+      "collapse-up": "collapse-up",
+      "log-in": "log-in",
+      "flash": "flash",
+      "log-out": "log-out",
+      "new-window": "new-window",
+      "record": "record",
+      "save": "save",
+      "open": "open",
+      "saved": "saved",
+      "import": "import",
+      "export": "export",
+      "send": "send",
+      "floppy-disk": "floppy-disk",
+      "floppy-saved": "floppy-saved",
+      "floppy-remove": "floppy-remove",
+      "floppy-save": "floppy-save",
+      "floppy-open": "floppy-open",
+      "credit-card": "credit-card",
+      "transfer": "transfer",
+      "cutlery": "cutlery",
+      "header": "header",
+      "compressed": "compressed",
+      "earphone": "earphone",
+      "phone-alt": "phone-alt",
+      "tower": "tower",
+      "stats": "stats",
+      "sd-video": "sd-video",
+      "hd-video": "hd-video",
+      "subtitles": "subtitles",
+      "sound-stereo": "sound-stereo",
+      "sound-dolby": "sound-dolby",
+      "sound-5-1": "sound-5-1",
+      "sound-6-1": "sound-6-1",
+      "sound-7-1": "sound-7-1",
+      "copyright-mark": "copyright-mark",
+      "registration-mark": "registration-mark",
+      "cloud-download": "cloud-download",
+      "cloud-upload": "cloud-upload",
+      "tree-conifer": "tree-conifer",
+      "tree-deciduous": "tree-deciduous"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "Grid",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "fluid",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "className",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "__name__",
+        "type": "Grid"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Input",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "type",
+        "type": "InputType"
+      },
+      {
+        "name": "label",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "help",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "addonBefore",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "addonAfter",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(InputStyle)"
+      },
+      {
+        "name": "hasFeedback",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "groupClassName",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "labelClassName",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "checked",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "readOnly",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "multiple",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "value",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "defaultValue",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "ref",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "onClick",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "onChange",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "__name__",
+        "type": "Input"
+      }
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "InputType",
+    "enums": {
+      "text": "text",
+      "password": "password",
+      "checkbox": "checkbox",
+      "radio": "radio",
+      "select": "select",
+      "textarea": "textarea",
+      "static": "static"
+    }
+  },
+  {
+    "kind": "enums",
+    "name": "InputStyle",
+    "enums": {
+      "success": "success",
+      "warning": "warning",
+      "error": "error"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "Jumbotron",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "__name__",
+        "type": "Jumbotron"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Label",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Label"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "MenuItem",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "header",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "divider",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "key",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "__name__",
+        "type": "MenuItem"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Modal",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "backdrop",
+        "type": "maybe(Backdrop)"
+      },
+      {
+        "name": "keyboard",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "closeButton",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "animation",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onRequestHide",
+        "type": "Func"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Modal"
+      }
+    ]
+  },
+  {
+    "kind": "union",
+    "name": "Backdrop",
+    "types": [
+      "enums",
+      "Bool"
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "enums",
+    "enums": {
+      "static": "static"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "Nav",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(NavStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "stacked",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "justified",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "collapsable",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "expanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "defaultExpanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "navbar",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "activeKey",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "__name__",
+        "type": "Nav"
+      }
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "NavStyle",
+    "enums": {
+      "tabs": "tabs",
+      "pills": "pills"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "Navbar",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "fixedTop",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "fixedBottom",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "staticTop",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "inverse",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "fluid",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "role",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "brand",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "toggleButton",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "onToggle",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "navExpanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "defaultNavExpanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Navbar"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "NavItem",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "active",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "disabled",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "key",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "NavItem"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "ModalTrigger",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "container",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "modal",
+        "type": "Any"
+      },
+      {
+        "name": "__name__",
+        "type": "ModalTrigger"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "OverlayTrigger",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "container",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "trigger",
+        "type": "maybe(union([TriggerA, list(TriggerB)]))"
+      },
+      {
+        "name": "placement",
+        "type": "maybe(Placement)"
+      },
+      {
+        "name": "delay",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "delayShow",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "delayHide",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "defaultOverlayShown",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "overlay",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "OverlayTrigger"
+      }
+    ]
+  },
+  {
+    "kind": "enums",
+    "name": "TriggerA",
+    "enums": {
+      "manual": "manual",
+      "click": "click",
+      "hover": "hover",
+      "focus": "focus"
+    }
+  },
+  {
+    "kind": "enums",
+    "name": "TriggerB",
+    "enums": {
+      "click": "click",
+      "hover": "hover",
+      "focus": "focus"
+    }
+  },
+  {
+    "kind": "enums",
+    "name": "Placement",
+    "enums": {
+      "top": "top",
+      "right": "right",
+      "bottom": "bottom",
+      "left": "left"
+    }
+  },
+  {
+    "kind": "struct",
+    "name": "PageHeader",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "__name__",
+        "type": "PageHeader"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Panel",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "header",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "footer",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "onClick",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "key",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "collapsable",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "defaultExpanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "expanded",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "__name__",
+        "type": "Panel"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "PanelGroup",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "collapsable",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "activeKey",
+        "type": "Any"
+      },
+      {
+        "name": "defaultActiveKey",
+        "type": "Any"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "accordion",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "PanelGroup"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "PageItem",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "disabled",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "previous",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "next",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "__name__",
+        "type": "PageItem"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Pager",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "__name__",
+        "type": "Pager"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Popover",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "placement",
+        "type": "Placement"
+      },
+      {
+        "name": "positionLeft",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "positionTop",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "arrowOffsetLeft",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "arrowOffsetTop",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Popover"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "ProgressBar",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "min",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "now",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "max",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "label",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "srOnly",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "striped",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "active",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "ProgressBar"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Row",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "className",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "__name__",
+        "type": "Row"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "SplitButton",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "pullRight",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "dropdownTitle",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "onClick",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "disabled",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "SplitButton"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "SubNav",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "active",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "disabled",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "href",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "title",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "text",
+        "type": "maybe(Any)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "SubNav"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "TabbedArea",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(NavStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "animation",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "onSelect",
+        "type": "maybe(Func)"
+      },
+      {
+        "name": "defaultActiveKey",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "__name__",
+        "type": "TabbedArea"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Table",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "striped",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "bordered",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "condensed",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "hover",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "responsive",
+        "type": "maybe(Bool)"
+      },
+      {
+        "name": "__name__",
+        "type": "Table"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "TabPane",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "key",
+        "type": "maybe(Key)"
+      },
+      {
+        "name": "tab",
+        "type": "maybe(Str)"
+      },
+      {
+        "name": "__name__",
+        "type": "TabPane"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Tooltip",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "placement",
+        "type": "maybe(Placement)"
+      },
+      {
+        "name": "positionLeft",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "positionTop",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "arrowOffsetLeft",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "arrowOffsetTop",
+        "type": "maybe(Num)"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Tooltip"
+      }
+    ]
+  },
+  {
+    "kind": "struct",
+    "name": "Well",
+    "props": [
+      {
+        "name": "children",
+        "type": "Any"
+      },
+      {
+        "name": "bsClass",
+        "type": "maybe(BsClass)"
+      },
+      {
+        "name": "bsStyle",
+        "type": "maybe(BsStyle)"
+      },
+      {
+        "name": "bsSize",
+        "type": "maybe(BsSize)"
+      },
+      {
+        "name": "__name__",
+        "type": "Well"
+      }
+    ]
   }
 ]

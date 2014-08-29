@@ -1,26 +1,33 @@
-# Accordion
+#### Accordion
 
-`Accordion` is a `struct` with no props.
+`Accordion` is a `struct` with the following props:
 
-# Affix
+- `children`: `Any`
+- `__name__`: `Accordion`
+
+#### Affix
 
 `Affix` is a `struct` with the following props:
 
+- `children`: `Any`
 - `offset`: `maybe(Num)`
 - `offsetTop`: `maybe(Num)`
 - `offsetBottom`: `maybe(Num)`
+- `__name__`: `Affix`
 
-# Alert
+#### Alert
 
 `Alert` is a `struct` with the following props:
 
+- `children`: `Any`
 - `onDismiss`: `maybe(Func)`
 - `dismissAfter`: `maybe(Num)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Alert`
 
-# BsClass
+#### BsClass
 
 `BsClass` is an `enums` of:
 
@@ -42,7 +49,7 @@
 - `"row"`: `"row"`
 - `"well"`: `"well"`
 
-# BsStyle
+#### BsStyle
 
 `BsStyle` is an `enums` of:
 
@@ -57,7 +64,7 @@
 - `"tabs"`: `"tabs"`
 - `"warning"`: `"warning"`
 
-# BsSize
+#### BsSize
 
 `BsSize` is an `enums` of:
 
@@ -66,16 +73,19 @@
 - `"small"`: `"sm"`
 - `"xsmall"`: `"xs"`
 
-# Badge
+#### Badge
 
 `Badge` is a `struct` with the following props:
 
+- `children`: `Any`
 - `pullRight`: `maybe(Bool)`
+- `__name__`: `Badge`
 
-# Button
+#### Button
 
 `Button` is a `struct` with the following props:
 
+- `children`: `Any`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `block`: `maybe(Bool)`
@@ -84,72 +94,82 @@
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Button`
 
-# ButtonGroup
+#### ButtonGroup
 
 `ButtonGroup` is a `struct` with the following props:
 
+- `children`: `list(Button)`
 - `vertical`: `maybe(Bool)`
 - `justified`: `maybe(Bool)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `ButtonGroup`
 
-# ButtonToolbar
+#### ButtonToolbar
 
 `ButtonToolbar` is a `struct` with the following props:
 
+- `children`: `Any`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `ButtonToolbar`
 
-# Carousel
+#### Carousel
 
 `Carousel` is a `struct` with the following props:
 
 - `onSlideEnd`: `maybe(Func)`
-- `slide`: `maybe(Bool)`
+- `children`: `Any`
+- `indicators`: `maybe(Bool)`
 - `controls`: `maybe(Bool)`
 - `pauseOnHover`: `maybe(Bool)`
 - `wrap`: `maybe(Bool)`
 - `onSelect`: `maybe(Func)`
-- `indicators`: `maybe(Bool)`
+- `slide`: `maybe(Bool)`
 - `activeIndex`: `maybe(Num)`
 - `defaultActiveIndex`: `maybe(Num)`
 - `direction`: `maybe(Direction)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Carousel`
 
-# Direction
+#### Direction
 
 `Direction` is an `enums` of:
 
-- `"next"`: `1`
-- `"prev"`: `0`
+- `"next"`: `"next"`
+- `"prev"`: `"prev"`
 
-# CarouselItem
+#### CarouselItem
 
 `CarouselItem` is a `struct` with the following props:
 
+- `children`: `Any`
 - `direction`: `maybe(Direction)`
 - `onAnimateOutEnd`: `maybe(Func)`
 - `active`: `maybe(Bool)`
 - `caption`: `maybe(Any)`
+- `__name__`: `CarouselItem`
 
-# Col
+#### Col
 
 `Col` is a `struct` with the following props:
 
 - `xsPush`: `maybe(Num)`
-- `xs`: `maybe(Num)`
+- `children`: `Any`
+- `sm`: `maybe(Num)`
 - `md`: `maybe(Num)`
 - `lg`: `maybe(Num)`
 - `xsOffset`: `maybe(Num)`
 - `smOffset`: `maybe(Num)`
 - `mdOffset`: `maybe(Num)`
 - `lgOffset`: `maybe(Num)`
-- `sm`: `maybe(Num)`
+- `xs`: `maybe(Num)`
 - `smPush`: `maybe(Num)`
 - `mdPush`: `maybe(Num)`
 - `lgPush`: `maybe(Num)`
@@ -157,40 +177,41 @@
 - `smPull`: `maybe(Num)`
 - `mdPull`: `maybe(Num)`
 - `lgPull`: `maybe(Num)`
-- `componentClass`: `maybe(ComponentClass)`
+- `className`: `maybe(Str)`
+- `__name__`: `Col`
 
-# ComponentClass
-
-`ComponentClass` is a `subtype` of `Str` such that: function
-
-# DropdownButton
+#### DropdownButton
 
 `DropdownButton` is a `struct` with the following props:
 
 - `onSelect`: `maybe(Func)`
-- `pullRight`: `maybe(Bool)`
+- `children`: `Any`
+- `dropup`: `maybe(Bool)`
 - `title`: `maybe(Any)`
 - `href`: `maybe(Str)`
 - `onClick`: `maybe(Func)`
-- `dropup`: `maybe(Bool)`
+- `pullRight`: `maybe(Bool)`
 - `navItem`: `maybe(Bool)`
 - `key`: `maybe(Key)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `DropdownButton`
 
-# Key
+#### Key
 
 `Key` is a `union` of `Str, Num`
 
-# DropdownMenu
+#### DropdownMenu
 
 `DropdownMenu` is a `struct` with the following props:
 
+- `children`: `Any`
 - `pullRight`: `maybe(Bool)`
 - `onSelect`: `maybe(Func)`
+- `__name__`: `DropdownMenu`
 
-# Glyphicon
+#### Glyphicon
 
 `Glyphicon` is a `struct` with the following props:
 
@@ -198,225 +219,229 @@
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Glyphicon`
 
-# Glyph
+#### Glyph
 
 `Glyph` is an `enums` of:
 
-- `"adjust"`: `67`
-- `"align-center"`: `58`
-- `"align-justify"`: `60`
-- `"align-left"`: `57`
-- `"align-right"`: `59`
-- `"arrow-down"`: `98`
-- `"arrow-left"`: `95`
-- `"arrow-right"`: `96`
-- `"arrow-up"`: `97`
-- `"asterisk"`: `0`
-- `"backward"`: `75`
-- `"ban-circle"`: `94`
-- `"barcode"`: `45`
-- `"bell"`: `124`
-- `"bold"`: `53`
-- `"book"`: `48`
-- `"bookmark"`: `49`
-- `"briefcase"`: `140`
-- `"bullhorn"`: `123`
-- `"calendar"`: `110`
-- `"camera"`: `51`
-- `"certificate"`: `125`
-- `"check"`: `71`
-- `"chevron-down"`: `115`
-- `"chevron-left"`: `83`
-- `"chevron-right"`: `84`
-- `"chevron-up"`: `114`
-- `"circle-arrow-down"`: `135`
-- `"circle-arrow-left"`: `133`
-- `"circle-arrow-right"`: `132`
-- `"circle-arrow-up"`: `134`
-- `"cloud"`: `4`
-- `"cloud-download"`: `196`
-- `"cloud-upload"`: `197`
-- `"cog"`: `24`
-- `"collapse-down"`: `159`
-- `"collapse-up"`: `160`
-- `"comment"`: `112`
-- `"compressed"`: `181`
-- `"copyright-mark"`: `194`
-- `"credit-card"`: `177`
-- `"cutlery"`: `179`
-- `"dashboard"`: `142`
-- `"download"`: `31`
-- `"download-alt"`: `30`
-- `"earphone"`: `182`
-- `"edit"`: `69`
-- `"eject"`: `82`
-- `"envelope"`: `5`
-- `"euro"`: `2`
-- `"exclamation-sign"`: `102`
-- `"expand"`: `158`
-- `"export"`: `170`
-- `"eye-close"`: `107`
-- `"eye-open"`: `106`
-- `"facetime-video"`: `64`
-- `"fast-backward"`: `74`
-- `"fast-forward"`: `80`
-- `"file"`: `27`
-- `"film"`: `14`
-- `"filter"`: `139`
-- `"fire"`: `105`
-- `"flag"`: `39`
-- `"flash"`: `162`
-- `"floppy-disk"`: `172`
-- `"floppy-open"`: `176`
-- `"floppy-remove"`: `174`
-- `"floppy-save"`: `175`
-- `"floppy-saved"`: `173`
-- `"folder-close"`: `118`
-- `"folder-open"`: `119`
-- `"font"`: `52`
-- `"forward"`: `79`
-- `"fullscreen"`: `141`
-- `"gbp"`: `149`
-- `"gift"`: `103`
-- `"glass"`: `7`
-- `"globe"`: `136`
-- `"hand-down"`: `131`
-- `"hand-left"`: `129`
-- `"hand-right"`: `128`
-- `"hand-up"`: `130`
-- `"hd-video"`: `187`
-- `"hdd"`: `122`
-- `"header"`: `180`
-- `"headphones"`: `40`
-- `"heart"`: `10`
-- `"heart-empty"`: `144`
-- `"home"`: `26`
-- `"import"`: `169`
-- `"inbox"`: `33`
-- `"indent-left"`: `62`
-- `"indent-right"`: `63`
-- `"info-sign"`: `90`
-- `"italic"`: `54`
-- `"leaf"`: `104`
-- `"link"`: `145`
-- `"list"`: `61`
-- `"list-alt"`: `37`
-- `"lock"`: `38`
-- `"log-in"`: `161`
-- `"log-out"`: `163`
-- `"magnet"`: `113`
-- `"map-marker"`: `66`
-- `"minus"`: `3`
-- `"minus-sign"`: `86`
-- `"move"`: `72`
-- `"music"`: `8`
-- `"new-window"`: `164`
-- `"off"`: `22`
-- `"ok"`: `18`
-- `"ok-circle"`: `93`
-- `"ok-sign"`: `88`
-- `"open"`: `167`
-- `"paperclip"`: `143`
-- `"pause"`: `77`
-- `"pencil"`: `6`
-- `"phone"`: `146`
-- `"phone-alt"`: `183`
-- `"picture"`: `65`
-- `"plane"`: `109`
-- `"play"`: `76`
-- `"play-circle"`: `34`
-- `"plus"`: `1`
-- `"plus-sign"`: `85`
-- `"print"`: `50`
-- `"pushpin"`: `147`
-- `"qrcode"`: `44`
-- `"question-sign"`: `89`
-- `"random"`: `111`
-- `"record"`: `165`
-- `"refresh"`: `36`
-- `"registration-mark"`: `195`
-- `"remove"`: `19`
-- `"remove-circle"`: `92`
-- `"remove-sign"`: `87`
-- `"repeat"`: `35`
-- `"resize-full"`: `100`
-- `"resize-horizontal"`: `121`
-- `"resize-small"`: `101`
-- `"resize-vertical"`: `120`
-- `"retweet"`: `116`
-- `"road"`: `29`
-- `"save"`: `166`
-- `"saved"`: `168`
-- `"screenshot"`: `91`
-- `"sd-video"`: `186`
-- `"search"`: `9`
-- `"send"`: `171`
-- `"share"`: `70`
-- `"share-alt"`: `99`
-- `"shopping-cart"`: `117`
-- `"signal"`: `23`
-- `"sort"`: `150`
-- `"sort-by-alphabet"`: `151`
-- `"sort-by-alphabet-alt"`: `152`
-- `"sort-by-attributes"`: `155`
-- `"sort-by-attributes-alt"`: `156`
-- `"sort-by-order"`: `153`
-- `"sort-by-order-alt"`: `154`
-- `"sound-5-1"`: `191`
-- `"sound-6-1"`: `192`
-- `"sound-7-1"`: `193`
-- `"sound-dolby"`: `190`
-- `"sound-stereo"`: `189`
-- `"star"`: `11`
-- `"star-empty"`: `12`
-- `"stats"`: `185`
-- `"step-backward"`: `73`
-- `"step-forward"`: `81`
-- `"stop"`: `78`
-- `"subtitles"`: `188`
-- `"tag"`: `46`
-- `"tags"`: `47`
-- `"tasks"`: `138`
-- `"text-height"`: `55`
-- `"text-width"`: `56`
-- `"th"`: `16`
-- `"th-large"`: `15`
-- `"th-list"`: `17`
-- `"thumbs-down"`: `127`
-- `"thumbs-up"`: `126`
-- `"time"`: `28`
-- `"tint"`: `68`
-- `"tower"`: `184`
-- `"transfer"`: `178`
-- `"trash"`: `25`
-- `"tree-conifer"`: `198`
-- `"tree-deciduous"`: `199`
-- `"unchecked"`: `157`
-- `"upload"`: `32`
-- `"usd"`: `148`
-- `"user"`: `13`
-- `"volume-down"`: `42`
-- `"volume-off"`: `41`
-- `"volume-up"`: `43`
-- `"warning-sign"`: `108`
-- `"wrench"`: `137`
-- `"zoom-in"`: `20`
-- `"zoom-out"`: `21`
+- `"adjust"`: `"adjust"`
+- `"align-center"`: `"align-center"`
+- `"align-justify"`: `"align-justify"`
+- `"align-left"`: `"align-left"`
+- `"align-right"`: `"align-right"`
+- `"arrow-down"`: `"arrow-down"`
+- `"arrow-left"`: `"arrow-left"`
+- `"arrow-right"`: `"arrow-right"`
+- `"arrow-up"`: `"arrow-up"`
+- `"asterisk"`: `"asterisk"`
+- `"backward"`: `"backward"`
+- `"ban-circle"`: `"ban-circle"`
+- `"barcode"`: `"barcode"`
+- `"bell"`: `"bell"`
+- `"bold"`: `"bold"`
+- `"book"`: `"book"`
+- `"bookmark"`: `"bookmark"`
+- `"briefcase"`: `"briefcase"`
+- `"bullhorn"`: `"bullhorn"`
+- `"calendar"`: `"calendar"`
+- `"camera"`: `"camera"`
+- `"certificate"`: `"certificate"`
+- `"check"`: `"check"`
+- `"chevron-down"`: `"chevron-down"`
+- `"chevron-left"`: `"chevron-left"`
+- `"chevron-right"`: `"chevron-right"`
+- `"chevron-up"`: `"chevron-up"`
+- `"circle-arrow-down"`: `"circle-arrow-down"`
+- `"circle-arrow-left"`: `"circle-arrow-left"`
+- `"circle-arrow-right"`: `"circle-arrow-right"`
+- `"circle-arrow-up"`: `"circle-arrow-up"`
+- `"cloud"`: `"cloud"`
+- `"cloud-download"`: `"cloud-download"`
+- `"cloud-upload"`: `"cloud-upload"`
+- `"cog"`: `"cog"`
+- `"collapse-down"`: `"collapse-down"`
+- `"collapse-up"`: `"collapse-up"`
+- `"comment"`: `"comment"`
+- `"compressed"`: `"compressed"`
+- `"copyright-mark"`: `"copyright-mark"`
+- `"credit-card"`: `"credit-card"`
+- `"cutlery"`: `"cutlery"`
+- `"dashboard"`: `"dashboard"`
+- `"download"`: `"download"`
+- `"download-alt"`: `"download-alt"`
+- `"earphone"`: `"earphone"`
+- `"edit"`: `"edit"`
+- `"eject"`: `"eject"`
+- `"envelope"`: `"envelope"`
+- `"euro"`: `"euro"`
+- `"exclamation-sign"`: `"exclamation-sign"`
+- `"expand"`: `"expand"`
+- `"export"`: `"export"`
+- `"eye-close"`: `"eye-close"`
+- `"eye-open"`: `"eye-open"`
+- `"facetime-video"`: `"facetime-video"`
+- `"fast-backward"`: `"fast-backward"`
+- `"fast-forward"`: `"fast-forward"`
+- `"file"`: `"file"`
+- `"film"`: `"film"`
+- `"filter"`: `"filter"`
+- `"fire"`: `"fire"`
+- `"flag"`: `"flag"`
+- `"flash"`: `"flash"`
+- `"floppy-disk"`: `"floppy-disk"`
+- `"floppy-open"`: `"floppy-open"`
+- `"floppy-remove"`: `"floppy-remove"`
+- `"floppy-save"`: `"floppy-save"`
+- `"floppy-saved"`: `"floppy-saved"`
+- `"folder-close"`: `"folder-close"`
+- `"folder-open"`: `"folder-open"`
+- `"font"`: `"font"`
+- `"forward"`: `"forward"`
+- `"fullscreen"`: `"fullscreen"`
+- `"gbp"`: `"gbp"`
+- `"gift"`: `"gift"`
+- `"glass"`: `"glass"`
+- `"globe"`: `"globe"`
+- `"hand-down"`: `"hand-down"`
+- `"hand-left"`: `"hand-left"`
+- `"hand-right"`: `"hand-right"`
+- `"hand-up"`: `"hand-up"`
+- `"hd-video"`: `"hd-video"`
+- `"hdd"`: `"hdd"`
+- `"header"`: `"header"`
+- `"headphones"`: `"headphones"`
+- `"heart"`: `"heart"`
+- `"heart-empty"`: `"heart-empty"`
+- `"home"`: `"home"`
+- `"import"`: `"import"`
+- `"inbox"`: `"inbox"`
+- `"indent-left"`: `"indent-left"`
+- `"indent-right"`: `"indent-right"`
+- `"info-sign"`: `"info-sign"`
+- `"italic"`: `"italic"`
+- `"leaf"`: `"leaf"`
+- `"link"`: `"link"`
+- `"list"`: `"list"`
+- `"list-alt"`: `"list-alt"`
+- `"lock"`: `"lock"`
+- `"log-in"`: `"log-in"`
+- `"log-out"`: `"log-out"`
+- `"magnet"`: `"magnet"`
+- `"map-marker"`: `"map-marker"`
+- `"minus"`: `"minus"`
+- `"minus-sign"`: `"minus-sign"`
+- `"move"`: `"move"`
+- `"music"`: `"music"`
+- `"new-window"`: `"new-window"`
+- `"off"`: `"off"`
+- `"ok"`: `"ok"`
+- `"ok-circle"`: `"ok-circle"`
+- `"ok-sign"`: `"ok-sign"`
+- `"open"`: `"open"`
+- `"paperclip"`: `"paperclip"`
+- `"pause"`: `"pause"`
+- `"pencil"`: `"pencil"`
+- `"phone"`: `"phone"`
+- `"phone-alt"`: `"phone-alt"`
+- `"picture"`: `"picture"`
+- `"plane"`: `"plane"`
+- `"play"`: `"play"`
+- `"play-circle"`: `"play-circle"`
+- `"plus"`: `"plus"`
+- `"plus-sign"`: `"plus-sign"`
+- `"print"`: `"print"`
+- `"pushpin"`: `"pushpin"`
+- `"qrcode"`: `"qrcode"`
+- `"question-sign"`: `"question-sign"`
+- `"random"`: `"random"`
+- `"record"`: `"record"`
+- `"refresh"`: `"refresh"`
+- `"registration-mark"`: `"registration-mark"`
+- `"remove"`: `"remove"`
+- `"remove-circle"`: `"remove-circle"`
+- `"remove-sign"`: `"remove-sign"`
+- `"repeat"`: `"repeat"`
+- `"resize-full"`: `"resize-full"`
+- `"resize-horizontal"`: `"resize-horizontal"`
+- `"resize-small"`: `"resize-small"`
+- `"resize-vertical"`: `"resize-vertical"`
+- `"retweet"`: `"retweet"`
+- `"road"`: `"road"`
+- `"save"`: `"save"`
+- `"saved"`: `"saved"`
+- `"screenshot"`: `"screenshot"`
+- `"sd-video"`: `"sd-video"`
+- `"search"`: `"search"`
+- `"send"`: `"send"`
+- `"share"`: `"share"`
+- `"share-alt"`: `"share-alt"`
+- `"shopping-cart"`: `"shopping-cart"`
+- `"signal"`: `"signal"`
+- `"sort"`: `"sort"`
+- `"sort-by-alphabet"`: `"sort-by-alphabet"`
+- `"sort-by-alphabet-alt"`: `"sort-by-alphabet-alt"`
+- `"sort-by-attributes"`: `"sort-by-attributes"`
+- `"sort-by-attributes-alt"`: `"sort-by-attributes-alt"`
+- `"sort-by-order"`: `"sort-by-order"`
+- `"sort-by-order-alt"`: `"sort-by-order-alt"`
+- `"sound-5-1"`: `"sound-5-1"`
+- `"sound-6-1"`: `"sound-6-1"`
+- `"sound-7-1"`: `"sound-7-1"`
+- `"sound-dolby"`: `"sound-dolby"`
+- `"sound-stereo"`: `"sound-stereo"`
+- `"star"`: `"star"`
+- `"star-empty"`: `"star-empty"`
+- `"stats"`: `"stats"`
+- `"step-backward"`: `"step-backward"`
+- `"step-forward"`: `"step-forward"`
+- `"stop"`: `"stop"`
+- `"subtitles"`: `"subtitles"`
+- `"tag"`: `"tag"`
+- `"tags"`: `"tags"`
+- `"tasks"`: `"tasks"`
+- `"text-height"`: `"text-height"`
+- `"text-width"`: `"text-width"`
+- `"th"`: `"th"`
+- `"th-large"`: `"th-large"`
+- `"th-list"`: `"th-list"`
+- `"thumbs-down"`: `"thumbs-down"`
+- `"thumbs-up"`: `"thumbs-up"`
+- `"time"`: `"time"`
+- `"tint"`: `"tint"`
+- `"tower"`: `"tower"`
+- `"transfer"`: `"transfer"`
+- `"trash"`: `"trash"`
+- `"tree-conifer"`: `"tree-conifer"`
+- `"tree-deciduous"`: `"tree-deciduous"`
+- `"unchecked"`: `"unchecked"`
+- `"upload"`: `"upload"`
+- `"usd"`: `"usd"`
+- `"user"`: `"user"`
+- `"volume-down"`: `"volume-down"`
+- `"volume-off"`: `"volume-off"`
+- `"volume-up"`: `"volume-up"`
+- `"warning-sign"`: `"warning-sign"`
+- `"wrench"`: `"wrench"`
+- `"zoom-in"`: `"zoom-in"`
+- `"zoom-out"`: `"zoom-out"`
 
-# Grid
+#### Grid
 
 `Grid` is a `struct` with the following props:
 
+- `children`: `Any`
 - `fluid`: `maybe(Bool)`
-- `componentClass`: `maybe(ComponentClass)`
+- `className`: `maybe(Str)`
+- `__name__`: `Grid`
 
-# Input
+#### Input
 
 `Input` is a `struct` with the following props:
 
 - `labelClassName`: `maybe(Str)`
-- `type`: `InputType`
+- `children`: `Any`
+- `label`: `maybe(Any)`
 - `help`: `maybe(Any)`
 - `addonBefore`: `maybe(Any)`
 - `addonAfter`: `maybe(Any)`
@@ -424,7 +449,7 @@
 - `hasFeedback`: `maybe(Bool)`
 - `groupClassName`: `maybe(Str)`
 - `wrapperClassName`: `maybe(Str)`
-- `label`: `maybe(Any)`
+- `type`: `InputType`
 - `checked`: `maybe(Bool)`
 - `readOnly`: `maybe(Bool)`
 - `multiple`: `maybe(Bool)`
@@ -433,219 +458,228 @@
 - `ref`: `maybe(Str)`
 - `onClick`: `maybe(Func)`
 - `onChange`: `maybe(Func)`
+- `__name__`: `Input`
 
-# InputType
+#### InputType
 
 `InputType` is an `enums` of:
 
-- `"checkbox"`: `2`
-- `"password"`: `1`
-- `"radio"`: `3`
-- `"select"`: `4`
-- `"static"`: `6`
-- `"text"`: `0`
-- `"textarea"`: `5`
+- `"checkbox"`: `"checkbox"`
+- `"password"`: `"password"`
+- `"radio"`: `"radio"`
+- `"select"`: `"select"`
+- `"static"`: `"static"`
+- `"text"`: `"text"`
+- `"textarea"`: `"textarea"`
 
-# InputStyle
+#### InputStyle
 
 `InputStyle` is an `enums` of:
 
-- `"error"`: `2`
-- `"success"`: `0`
-- `"warning"`: `1`
+- `"error"`: `"error"`
+- `"success"`: `"success"`
+- `"warning"`: `"warning"`
 
-# Jumbotron
+#### Jumbotron
 
-`Jumbotron` is a `struct` with no props.
+`Jumbotron` is a `struct` with the following props:
 
-# Label
+- `children`: `Any`
+- `__name__`: `Jumbotron`
+
+#### Label
 
 `Label` is a `struct` with the following props:
 
+- `children`: `Any`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Label`
 
-# MenuItem
+#### MenuItem
 
 `MenuItem` is a `struct` with the following props:
 
+- `children`: `Any`
 - `header`: `maybe(Bool)`
 - `divider`: `maybe(Bool)`
 - `href`: `maybe(Str)`
 - `title`: `maybe(Str)`
 - `onSelect`: `maybe(Func)`
 - `key`: `maybe(Key)`
+- `__name__`: `MenuItem`
 
-# Modal
+#### Modal
 
 `Modal` is a `struct` with the following props:
 
-- `title`: `maybe(Any)`
+- `animation`: `maybe(Bool)`
+- `children`: `Any`
 - `backdrop`: `maybe(Backdrop)`
 - `keyboard`: `maybe(Bool)`
 - `closeButton`: `maybe(Bool)`
-- `animation`: `maybe(Bool)`
+- `title`: `maybe(Any)`
 - `onRequestHide`: `Func`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Modal`
 
-# Backdrop
+#### Backdrop
 
-`Backdrop` is a `union` of `enums(), Bool`
+`Backdrop` is a `union` of `enums, Bool`
 
-# enums()
+#### enums
 
-`enums()` is an `enums` of:
+`enums` is an `enums` of:
 
-- `"static"`: `0`
+- `"static"`: `"static"`
 
-# ModalTrigger
-
-`ModalTrigger` is a `struct` with the following props:
-
-- `container`: `maybe(Any)`
-- `modal`: `Any`
-
-# Nav
+#### Nav
 
 `Nav` is a `struct` with the following props:
 
 - `onSelect`: `maybe(Func)`
-- `bsClass`: `maybe(BsClass)`
+- `children`: `Any`
+- `bsStyle`: `maybe(NavStyle)`
 - `bsSize`: `maybe(BsSize)`
 - `stacked`: `maybe(Bool)`
 - `justified`: `maybe(Bool)`
-- `bsStyle`: `maybe(NavStyle)`
+- `bsClass`: `maybe(BsClass)`
 - `collapsable`: `maybe(Bool)`
 - `expanded`: `maybe(Bool)`
 - `defaultExpanded`: `maybe(Bool)`
 - `navbar`: `maybe(Bool)`
 - `activeKey`: `maybe(Key)`
+- `__name__`: `Nav`
 
-# NavStyle
+#### NavStyle
 
 `NavStyle` is an `enums` of:
 
-- `"pills"`: `1`
-- `"tabs"`: `0`
+- `"pills"`: `"pills"`
+- `"tabs"`: `"tabs"`
 
-# Navbar
+#### Navbar
 
 `Navbar` is a `struct` with the following props:
 
-- `brand`: `maybe(Any)`
-- `fixedTop`: `maybe(Bool)`
+- `toggleButton`: `maybe(Any)`
+- `children`: `Any`
+- `fixedBottom`: `maybe(Bool)`
 - `staticTop`: `maybe(Bool)`
 - `inverse`: `maybe(Bool)`
 - `fluid`: `maybe(Bool)`
 - `role`: `maybe(Str)`
-- `componentClass`: `maybe(ComponentClass)`
-- `fixedBottom`: `maybe(Bool)`
-- `toggleButton`: `maybe(Any)`
+- `brand`: `maybe(Any)`
+- `fixedTop`: `maybe(Bool)`
 - `onToggle`: `maybe(Func)`
 - `navExpanded`: `maybe(Bool)`
 - `defaultNavExpanded`: `maybe(Bool)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Navbar`
 
-# NavItem
+#### NavItem
 
 `NavItem` is a `struct` with the following props:
 
-- `onSelect`: `maybe(Func)`
+- `title`: `maybe(Str)`
+- `children`: `Any`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `href`: `maybe(Str)`
-- `title`: `maybe(Str)`
+- `onSelect`: `maybe(Func)`
 - `key`: `maybe(Key)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `NavItem`
 
-# OverlayTrigger
+#### ModalTrigger
+
+`ModalTrigger` is a `struct` with the following props:
+
+- `children`: `Any`
+- `container`: `maybe(Any)`
+- `modal`: `Any`
+- `__name__`: `ModalTrigger`
+
+#### OverlayTrigger
 
 `OverlayTrigger` is a `struct` with the following props:
 
 - `delayHide`: `maybe(Num)`
-- `container`: `maybe(Any)`
+- `children`: `Any`
+- `trigger`: `maybe(union([TriggerA, list(TriggerB)]))`
 - `placement`: `maybe(Placement)`
 - `delay`: `maybe(Num)`
 - `delayShow`: `maybe(Num)`
-- `trigger`: `maybe(union(TriggerA, list(TriggerB)))`
+- `container`: `maybe(Any)`
 - `defaultOverlayShown`: `maybe(Bool)`
 - `overlay`: `Any`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `OverlayTrigger`
 
-# TriggerA
+#### TriggerA
 
 `TriggerA` is an `enums` of:
 
-- `"click"`: `1`
-- `"focus"`: `3`
-- `"hover"`: `2`
-- `"manual"`: `0`
+- `"click"`: `"click"`
+- `"focus"`: `"focus"`
+- `"hover"`: `"hover"`
+- `"manual"`: `"manual"`
 
-# TriggerB
+#### TriggerB
 
 `TriggerB` is an `enums` of:
 
-- `"click"`: `0`
-- `"focus"`: `2`
-- `"hover"`: `1`
+- `"click"`: `"click"`
+- `"focus"`: `"focus"`
+- `"hover"`: `"hover"`
 
-# Placement
+#### Placement
 
 `Placement` is an `enums` of:
 
-- `"bottom"`: `2`
-- `"left"`: `3`
-- `"right"`: `1`
-- `"top"`: `0`
+- `"bottom"`: `"bottom"`
+- `"left"`: `"left"`
+- `"right"`: `"right"`
+- `"top"`: `"top"`
 
-# PageHeader
+#### PageHeader
 
-`PageHeader` is a `struct` with no props.
+`PageHeader` is a `struct` with the following props:
 
-# PageItem
+- `children`: `Any`
+- `__name__`: `PageHeader`
 
-`PageItem` is a `struct` with the following props:
-
-- `disabled`: `maybe(Bool)`
-- `previous`: `maybe(Bool)`
-- `next`: `maybe(Bool)`
-- `onSelect`: `maybe(Func)`
-- `href`: `maybe(Str)`
-
-# Pager
-
-`Pager` is a `struct` with the following props:
-
-- `onSelect`: `maybe(Func)`
-
-# Panel
+#### Panel
 
 `Panel` is a `struct` with the following props:
 
-- `header`: `maybe(Any)`
+- `bsStyle`: `maybe(BsStyle)`
+- `children`: `Any`
 - `footer`: `maybe(Any)`
 - `onClick`: `maybe(Func)`
 - `key`: `maybe(Key)`
 - `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
+- `header`: `maybe(Any)`
 - `bsSize`: `maybe(BsSize)`
 - `collapsable`: `maybe(Bool)`
 - `defaultExpanded`: `maybe(Bool)`
 - `expanded`: `maybe(Bool)`
+- `__name__`: `Panel`
 
-# PanelGroup
+#### PanelGroup
 
 `PanelGroup` is a `struct` with the following props:
 
+- `children`: `Any`
 - `collapsable`: `maybe(Bool)`
 - `activeKey`: `Any`
 - `defaultActiveKey`: `Any`
@@ -654,103 +688,141 @@
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `PanelGroup`
 
-# Popover
+#### PageItem
+
+`PageItem` is a `struct` with the following props:
+
+- `children`: `Any`
+- `disabled`: `maybe(Bool)`
+- `previous`: `maybe(Bool)`
+- `next`: `maybe(Bool)`
+- `onSelect`: `maybe(Func)`
+- `href`: `maybe(Str)`
+- `__name__`: `PageItem`
+
+#### Pager
+
+`Pager` is a `struct` with the following props:
+
+- `children`: `Any`
+- `onSelect`: `maybe(Func)`
+- `__name__`: `Pager`
+
+#### Popover
 
 `Popover` is a `struct` with the following props:
 
-- `placement`: `Placement`
+- `arrowOffsetTop`: `maybe(Num)`
+- `children`: `Any`
 - `positionLeft`: `maybe(Num)`
 - `positionTop`: `maybe(Num)`
 - `arrowOffsetLeft`: `maybe(Num)`
-- `arrowOffsetTop`: `maybe(Num)`
+- `placement`: `Placement`
 - `title`: `maybe(Any)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Popover`
 
-# ProgressBar
+#### ProgressBar
 
 `ProgressBar` is a `struct` with the following props:
 
-- `min`: `maybe(Num)`
+- `striped`: `maybe(Bool)`
+- `children`: `Any`
 - `now`: `maybe(Num)`
 - `max`: `maybe(Num)`
 - `label`: `maybe(Any)`
 - `srOnly`: `maybe(Bool)`
-- `striped`: `maybe(Bool)`
+- `min`: `maybe(Num)`
 - `active`: `maybe(Bool)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `ProgressBar`
 
-# Row
+#### Row
 
 `Row` is a `struct` with the following props:
 
-- `componentClass`: `maybe(ComponentClass)`
+- `children`: `Any`
+- `className`: `maybe(Str)`
+- `__name__`: `Row`
 
-# SplitButton
+#### SplitButton
 
 `SplitButton` is a `struct` with the following props:
 
-- `pullRight`: `maybe(Bool)`
+- `onSelect`: `maybe(Func)`
+- `children`: `Any`
 - `title`: `maybe(Any)`
 - `href`: `maybe(Str)`
 - `dropdownTitle`: `maybe(Any)`
 - `onClick`: `maybe(Func)`
-- `onSelect`: `maybe(Func)`
+- `pullRight`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `SplitButton`
 
-# SubNav
+#### SubNav
 
 `SubNav` is a `struct` with the following props:
 
-- `onSelect`: `maybe(Func)`
+- `title`: `maybe(Str)`
+- `children`: `Any`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `href`: `maybe(Str)`
-- `title`: `maybe(Str)`
+- `onSelect`: `maybe(Func)`
 - `text`: `maybe(Any)`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `SubNav`
 
-# TabbedArea
+#### TabbedArea
 
 `TabbedArea` is a `struct` with the following props:
 
+- `children`: `Any`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(NavStyle)`
 - `bsSize`: `maybe(BsSize)`
 - `animation`: `maybe(Bool)`
 - `onSelect`: `maybe(Func)`
 - `defaultActiveKey`: `maybe(Key)`
+- `__name__`: `TabbedArea`
 
-# Table
+#### Table
 
 `Table` is a `struct` with the following props:
 
+- `children`: `Any`
 - `striped`: `maybe(Bool)`
 - `bordered`: `maybe(Bool)`
 - `condensed`: `maybe(Bool)`
 - `hover`: `maybe(Bool)`
 - `responsive`: `maybe(Bool)`
+- `__name__`: `Table`
 
-# TabPane
+#### TabPane
 
 `TabPane` is a `struct` with the following props:
 
+- `children`: `Any`
 - `key`: `maybe(Key)`
 - `tab`: `maybe(Str)`
+- `__name__`: `TabPane`
 
-# Tooltip
+#### Tooltip
 
 `Tooltip` is a `struct` with the following props:
 
+- `children`: `Any`
 - `placement`: `maybe(Placement)`
 - `positionLeft`: `maybe(Num)`
 - `positionTop`: `maybe(Num)`
@@ -759,13 +831,16 @@
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Tooltip`
 
-# Well
+#### Well
 
 `Well` is a `struct` with the following props:
 
+- `children`: `Any`
 - `bsClass`: `maybe(BsClass)`
 - `bsStyle`: `maybe(BsStyle)`
 - `bsSize`: `maybe(BsSize)`
+- `__name__`: `Well`
 
 
