@@ -7,12 +7,12 @@ Documentation tool for tcomb (proof of concept)
 
 For now the best example I can show you is the generated documentation of [tcomb-react-bootstrap](https://github.com/gcanti/tcomb-react-bootstrap), which is an attempt to add type safety to the awesome project [React Bootstrap](http://react-bootstrap.github.io):
 
-[output](examples/tcomb-react-bootstrap.md) of `formatMarkdown` applied to tcomb-react-bootstrap domain model
+[output](examples/tcomb-react-bootstrap.md) of `toMarkdown` applied to tcomb-react-bootstrap domain model
 
 ## How it works
 
 tcomb-doc parses a domain model written with tcomb and outputs a JSON representation of all types it can find.
-Then you can process the output with a your transformation of choice. I added a `formatMarkdown` function
+Then you can process the output with a your transformation of choice. I added a `toMarkdown` function
 to provide an example of such transformations.
 
 # Api
@@ -67,11 +67,10 @@ console.log(JSON.stringify(json, null, 2));
   }
 ]
 ```
-## formatMarkdown(json)
+## toMarkdown(json)
 
 Translates the JSON format to markdown.
 
 Examples
 
-- [the output of `formatMarkdown` applied to the library itself](examples/dogfood.md)
-- [the output of `formatMarkdown` applied to tcomb-react-bootstrap domain model](examples/tcomb-react-bootstrap.md)
+- [the output of `toMarkdown` applied to tcomb-react-bootstrap domain model](examples/tcomb-react-bootstrap.md)

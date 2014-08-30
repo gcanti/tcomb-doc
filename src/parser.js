@@ -103,6 +103,15 @@ function parseType(T, index) {
         parseType(T, index);
       });
       break;
+    case 'dict' :
+      if (isNamed(name)) {
+        index[name] = domain.Dict({
+          name: name,
+          type: getName(T.meta.type)
+        });
+      }
+      parseType(T.meta.type, index);
+      break;
     default :
       throw new Error(format('unknown kind %s', getName(T)));
   }

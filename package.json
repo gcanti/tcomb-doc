@@ -1,6 +1,6 @@
 {
   "name": "tcomb-doc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "dependencies": {
-    "tcomb": "~0.0.12"
+    "tcomb": "*"
   },
   "tags": [
     "tcomb",

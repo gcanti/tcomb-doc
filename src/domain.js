@@ -72,7 +72,14 @@ var Union = struct({
 
 Union.prototype.toJSON = toJSON('union');
 
-var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union], 'Type');
+var Dict = struct({
+  name: Str,
+  type: Str
+}, 'Dict');
+
+Dict.prototype.toJSON = toJSON('dict');
+
+var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union, Dict], 'Type');
 
 var Doc = struct({
   types: list(Type)

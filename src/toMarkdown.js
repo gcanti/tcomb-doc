@@ -23,7 +23,7 @@ function ul(lis) {
   }).join('\n') + '\n\n';
 }
 
-function formatMarkdown(json) {
+function toMarkdown(json) {
   var md = '';
   json.forEach(function (type) {
     var kind = type.kind;
@@ -61,6 +61,9 @@ function formatMarkdown(json) {
       case 'union' :
         md += p('`%s` is a `union` of `%s`', name, type.types.join(', '));
         break;
+      case 'dict' :
+        md += p('`%s` is a `dict` of `%s`', name, type.type);
+        break;
       default :
         throw new Error(format('unknown kind %s', kind));
     }
@@ -68,4 +71,4 @@ function formatMarkdown(json) {
   return md;
 }
 
-module.exports = formatMarkdown;
+module.exports = toMarkdown;

@@ -9,5 +9,5 @@ Object.keys(components).forEach(function (c) {
 var result = doc.parse(domain);
 var json = result.toJSON();
 console.log(JSON.stringify(json, null, 2));
-//console.log(doc.formatMarkdown(json));
+//console.log(doc.toMarkdown(json));
 
