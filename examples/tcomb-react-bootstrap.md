@@ -5,7 +5,11 @@
 - `children`: `Any`
 - `__name__`: `Accordion`
 
-#### Affix
+#### Any
+
+`Any` is a `primitive`
+
+ #### Affix
 
 `Affix` is a `struct` with the following props:
 
@@ -15,7 +19,11 @@
 - `offsetBottom`: `maybe(Num)`
 - `__name__`: `Affix`
 
-#### Alert
+#### Num
+
+`Num` is a `primitive`
+
+ #### Alert
 
 `Alert` is a `struct` with the following props:
 
@@ -27,7 +35,11 @@
 - `bsSize`: `maybe(BsSize)`
 - `__name__`: `Alert`
 
-#### BsClass
+#### Func
+
+`Func` is a `primitive`
+
+ #### BsClass
 
 `BsClass` is an `enums` of:
 
@@ -81,7 +93,11 @@
 - `pullRight`: `maybe(Bool)`
 - `__name__`: `Badge`
 
-#### Button
+#### Bool
+
+`Bool` is a `primitive`
+
+ #### Button
 
 `Button` is a `struct` with the following props:
 
@@ -180,7 +196,11 @@
 - `className`: `maybe(Str)`
 - `__name__`: `Col`
 
-#### DropdownButton
+#### Str
+
+`Str` is a `primitive`
+
+ #### DropdownButton
 
 `DropdownButton` is a `struct` with the following props:
 
@@ -603,9 +623,13 @@
 `ModalTrigger` is a `struct` with the following props:
 
 - `children`: `Any`
-- `container`: `maybe(Any)`
+- `container`: `maybe(Mountable)`
 - `modal`: `Any`
 - `__name__`: `ModalTrigger`
+
+#### Mountable
+
+`Mountable` is a `subtype` of `Any`
 
 #### OverlayTrigger
 
@@ -617,7 +641,7 @@
 - `placement`: `maybe(Placement)`
 - `delay`: `maybe(Num)`
 - `delayShow`: `maybe(Num)`
-- `container`: `maybe(Any)`
+- `container`: `maybe(Mountable)`
 - `defaultOverlayShown`: `maybe(Bool)`
 - `overlay`: `Any`
 - `bsClass`: `maybe(BsClass)`

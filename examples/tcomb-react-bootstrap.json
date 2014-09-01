@@ -14,6 +14,10 @@
     ]
   },
   {
+    "kind": "primitive",
+    "name": "Any"
+  },
+  {
     "kind": "struct",
     "name": "Affix",
     "props": [
@@ -38,6 +42,10 @@
         "type": "Affix"
       }
     ]
+  },
+  {
+    "kind": "primitive",
+    "name": "Num"
   },
   {
     "kind": "struct",
@@ -72,6 +80,10 @@
         "type": "Alert"
       }
     ]
+  },
+  {
+    "kind": "primitive",
+    "name": "Func"
   },
   {
     "kind": "enums",
@@ -139,6 +151,10 @@
         "type": "Badge"
       }
     ]
+  },
+  {
+    "kind": "primitive",
+    "name": "Bool"
   },
   {
     "kind": "struct",
@@ -431,6 +447,10 @@
         "type": "Col"
       }
     ]
+  },
+  {
+    "kind": "primitive",
+    "name": "Str"
   },
   {
     "kind": "struct",
@@ -1221,7 +1241,7 @@
       },
       {
         "name": "container",
-        "type": "maybe(Any)"
+        "type": "maybe(Mountable)"
       },
       {
         "name": "modal",
@@ -1234,6 +1254,12 @@
     ]
   },
   {
+    "kind": "subtype",
+    "name": "Mountable",
+    "type": "Any",
+    "predicate": "function"
+  },
+  {
     "kind": "struct",
     "name": "OverlayTrigger",
     "props": [
@@ -1243,7 +1269,7 @@
       },
       {
         "name": "container",
-        "type": "maybe(Any)"
+        "type": "maybe(Mountable)"
       },
       {
         "name": "trigger",

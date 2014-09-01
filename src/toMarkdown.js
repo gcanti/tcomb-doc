@@ -64,6 +64,9 @@ function toMarkdown(json) {
       case 'dict' :
         md += p('`%s` is a `dict` of `%s`', name, type.type);
         break;
+      case 'primitive' :
+        md += p('`%s` is a `primitive`', name, type.type);
+        break;
       default :
         throw new Error(format('unknown kind %s', kind));
     }

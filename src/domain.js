@@ -79,7 +79,13 @@ var Dict = struct({
 
 Dict.prototype.toJSON = toJSON('dict');
 
-var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union, Dict], 'Type');
+var Primitive = struct({
+  name: Str
+}, 'Primitive');
+
+Primitive.prototype.toJSON = toJSON('primitive');
+
+var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union, Dict, Primitive], 'Type');
 
 var Doc = struct({
   types: list(Type)
@@ -101,5 +107,7 @@ module.exports = {
   List: List,
   Enums: Enums,
   Struct: Struct,
-  Prop: Prop
+  Prop: Prop,
+  Dict: Dict,
+  Primitive: Primitive
 };

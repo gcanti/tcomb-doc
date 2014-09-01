@@ -30,8 +30,8 @@ function parseType(T, index) {
   if (!isType(T)) { return; }
   var name = getName(T);
   var kind = T.meta.kind;
-  // exclude anonymous types, primitives, any and all types already indexed
-  if (kind === 'primitive' || kind === 'any' || index.hasOwnProperty(name)) { return; }
+  // exclude types already indexed
+  if (index.hasOwnProperty(name)) { return; }
   switch(kind) {
     case 'enums' :
       index[name] = domain.Enums({
@@ -111,6 +111,14 @@ function parseType(T, index) {
         });
       }
       parseType(T.meta.type, index);
+      break;
+    case 'any' :
+    case 'primitive' :
+      if (isNamed(name)) {
+        index[name] = domain.Primitive({
+          name: name
+        });
+      }
       break;
     default :
       throw new Error(format('unknown kind %s', getName(T)));
