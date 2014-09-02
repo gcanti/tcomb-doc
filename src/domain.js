@@ -9,7 +9,7 @@ var struct = t.struct;
 var union = t.union;
 var list = t.list;
 var maybe = t.maybe;
-var mixin = t.mixin;
+var mixin = t.util.mixin;
 
 function toJSON(kind) {
   return function () {
@@ -79,13 +79,13 @@ var Dict = struct({
 
 Dict.prototype.toJSON = toJSON('dict');
 
-var Primitive = struct({
+var Irriducible = struct({
   name: Str
-}, 'Primitive');
+}, 'Irriducible');
 
-Primitive.prototype.toJSON = toJSON('primitive');
+Irriducible.prototype.toJSON = toJSON('irriducible');
 
-var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union, Dict, Primitive], 'Type');
+var Type = union([Struct, Enums, List, Maybe, Subtype, Tuple, Union, Dict, Irriducible], 'Type');
 
 var Doc = struct({
   types: list(Type)
@@ -109,5 +109,5 @@ module.exports = {
   Struct: Struct,
   Prop: Prop,
   Dict: Dict,
-  Primitive: Primitive
+  Irriducible: Irriducible
 };

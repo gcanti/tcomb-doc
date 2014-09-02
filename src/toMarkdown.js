@@ -2,7 +2,7 @@
 
 var t = require('tcomb');
 
-var format = t.format;
+var format = t.util.format;
 
 function h4(s) {
   return format('#### %s\n\n', s);
@@ -64,8 +64,8 @@ function toMarkdown(json) {
       case 'dict' :
         md += p('`%s` is a `dict` of `%s`', name, type.type);
         break;
-      case 'primitive' :
-        md += p('`%s` is a `primitive`', name, type.type);
+      case 'irriducible' :
+        md += p('`%s` is a `irriducible`', name, type.type);
         break;
       default :
         throw new Error(format('unknown kind %s', kind));

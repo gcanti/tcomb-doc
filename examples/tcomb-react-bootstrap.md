@@ -7,7 +7,7 @@
 
 #### Any
 
-`Any` is a `primitive`
+`Any` is a `irriducible`
 
  #### Affix
 
@@ -21,7 +21,7 @@
 
 #### Num
 
-`Num` is a `primitive`
+`Num` is a `irriducible`
 
  #### Alert
 
@@ -37,7 +37,7 @@
 
 #### Func
 
-`Func` is a `primitive`
+`Func` is a `irriducible`
 
  #### BsClass
 
@@ -95,7 +95,7 @@
 
 #### Bool
 
-`Bool` is a `primitive`
+`Bool` is a `irriducible`
 
  #### Button
 
@@ -198,7 +198,7 @@
 
 #### Str
 
-`Str` is a `primitive`
+`Str` is a `irriducible`
 
  #### DropdownButton
 

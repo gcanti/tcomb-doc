@@ -4,9 +4,9 @@ var t = require('tcomb');
 var domain = require('./domain');
 
 var Obj = t.Obj;
-var format = t.format;
-var isType = t.isType;
-var getName = t.getName;
+var format = t.util.format;
+var isType = t.util.isType;
+var getName = t.util.getName;
 
 function isNamed(name) {
   // TODO: better test
@@ -29,7 +29,7 @@ function parse(module) {
 function parseType(T, index) {
   if (!isType(T)) { return; }
   var name = getName(T);
-  var kind = T.meta.kind;
+  var kind = t.util.getKind(T);
   // exclude types already indexed
   if (index.hasOwnProperty(name)) { return; }
   switch(kind) {
@@ -112,16 +112,15 @@ function parseType(T, index) {
       }
       parseType(T.meta.type, index);
       break;
-    case 'any' :
-    case 'primitive' :
+    case 'irriducible' :
       if (isNamed(name)) {
-        index[name] = domain.Primitive({
+        index[name] = domain.Irriducible({
           name: name
         });
       }
       break;
     default :
-      throw new Error(format('unknown kind %s', getName(T)));
+      throw new Error(format('unknown kind %s for %j', getName(T), T));
   }
 }
 
