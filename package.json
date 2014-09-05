@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "dependencies": {
-    "tcomb": "*"
+    "tcomb": "~0.2.0"
   },
   "tags": [
     "tcomb",
