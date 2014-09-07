@@ -4,8 +4,8 @@ var t = require('tcomb');
 
 var format = t.util.format;
 
-function h4(s) {
-  return format('#### %s\n\n', s);
+function h1(s) {
+  return format('# %s\n\n', s);
 }
 
 function strong(s) {
@@ -28,7 +28,7 @@ function toMarkdown(json) {
   json.forEach(function (type) {
     var kind = type.kind;
     var name = type.name;
-    md += h4(name);
+    md += h1(name);
     switch(kind) {
       case 'struct' :
         if (type.props.length) {

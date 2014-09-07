@@ -31,7 +31,7 @@ function parseType(T, index) {
   var name = getName(T);
   var kind = t.util.getKind(T);
   // exclude types already indexed
-  if (index.hasOwnProperty(name)) { return; }
+  if (index.hasOwnProperty(name) || !isNamed(name)) { return; }
   switch(kind) {
     case 'enums' :
       index[name] = domain.Enums({

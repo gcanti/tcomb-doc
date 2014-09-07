@@ -1,247 +1,177 @@
-#### Accordion
+# Accordion
 
 `Accordion` is a `struct` with the following props:
 
+- `__tag__`: `Accordion`
 - `children`: `Any`
-- `__name__`: `Accordion`
 
-#### Any
+# Any
 
 `Any` is a `irriducible`
 
- #### Affix
+ # Affix
 
 `Affix` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `Affix`
 - `offset`: `maybe(Num)`
 - `offsetTop`: `maybe(Num)`
 - `offsetBottom`: `maybe(Num)`
-- `__name__`: `Affix`
+- `children`: `Renderable`
 
-#### Num
+# Renderable
 
-`Num` is a `irriducible`
+`Renderable` is a `irriducible`
 
- #### Alert
+ # Alert
 
-`Alert` is a `struct` with the following props:
+`Alert` is a `subtype` of `struct`
 
-- `children`: `Any`
-- `onDismiss`: `maybe(Func)`
-- `dismissAfter`: `maybe(Num)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Alert`
-
-#### Func
-
-`Func` is a `irriducible`
-
- #### BsClass
-
-`BsClass` is an `enums` of:
-
-- `"alert"`: `"alert"`
-- `"button"`: `"btn"`
-- `"button-group"`: `"btn-group"`
-- `"button-toolbar"`: `"btn-toolbar"`
-- `"column"`: `"col"`
-- `"form"`: `"form"`
-- `"glyphicon"`: `"glyphicon"`
-- `"input-group"`: `"input-group"`
-- `"label"`: `"label"`
-- `"modal"`: `"modal"`
-- `"nav"`: `"nav"`
-- `"navbar"`: `"navbar"`
-- `"panel"`: `"panel"`
-- `"panel-group"`: `"panel-group"`
-- `"progress-bar"`: `"progress-bar"`
-- `"row"`: `"row"`
-- `"well"`: `"well"`
-
-#### BsStyle
-
-`BsStyle` is an `enums` of:
-
-- `"danger"`: `"danger"`
-- `"default"`: `"default"`
-- `"info"`: `"info"`
-- `"inline"`: `"inline"`
-- `"link"`: `"link"`
-- `"pills"`: `"pills"`
-- `"primary"`: `"primary"`
-- `"success"`: `"success"`
-- `"tabs"`: `"tabs"`
-- `"warning"`: `"warning"`
-
-#### BsSize
-
-`BsSize` is an `enums` of:
-
-- `"large"`: `"lg"`
-- `"medium"`: `"md"`
-- `"small"`: `"sm"`
-- `"xsmall"`: `"xs"`
-
-#### Badge
+# Badge
 
 `Badge` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `Badge`
 - `pullRight`: `maybe(Bool)`
-- `__name__`: `Badge`
+- `children`: `Renderable`
 
-#### Bool
-
-`Bool` is a `irriducible`
-
- #### Button
+# Button
 
 `Button` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `Button`
+- `bsStyle`: `maybe(ButtonBsStyle)`
+- `bsSize`: `maybe(BsSize)`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `block`: `maybe(Bool)`
 - `navItem`: `maybe(Bool)`
 - `navDropdown`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Button`
+- `children`: `Renderable`
+- `onClick`: `maybe(Func)`
 
-#### ButtonGroup
+# ButtonGroup
 
 `ButtonGroup` is a `struct` with the following props:
 
-- `children`: `list(Button)`
+- `__tag__`: `ButtonGroup`
 - `vertical`: `maybe(Bool)`
 - `justified`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `ButtonGroup`
+- `children`: `Buttons`
 
-#### ButtonToolbar
+# Buttons
+
+`Buttons` is a `list` of `Button`
+
+# ButtonToolbar
 
 `ButtonToolbar` is a `struct` with the following props:
 
-- `children`: `Any`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `ButtonToolbar`
+- `__tag__`: `ButtonToolbar`
+- `children`: `ButtonGroups`
 
-#### Carousel
+# ButtonGroups
+
+`ButtonGroups` is a `list` of `ButtonGroup`
+
+# Carousel
 
 `Carousel` is a `struct` with the following props:
 
-- `onSlideEnd`: `maybe(Func)`
-- `children`: `Any`
+- `onSelect`: `maybe(Func)`
+- `__tag__`: `Carousel`
 - `indicators`: `maybe(Bool)`
 - `controls`: `maybe(Bool)`
 - `pauseOnHover`: `maybe(Bool)`
 - `wrap`: `maybe(Bool)`
-- `onSelect`: `maybe(Func)`
 - `slide`: `maybe(Bool)`
+- `onSlideEnd`: `maybe(Func)`
 - `activeIndex`: `maybe(Num)`
 - `defaultActiveIndex`: `maybe(Num)`
 - `direction`: `maybe(Direction)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Carousel`
+- `children`: `CarouselItems`
 
-#### Direction
+# CarouselItems
 
-`Direction` is an `enums` of:
+`CarouselItems` is a `list` of `CarouselItem`
 
-- `"next"`: `"next"`
-- `"prev"`: `"prev"`
-
-#### CarouselItem
+# CarouselItem
 
 `CarouselItem` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `CarouselItem`
 - `direction`: `maybe(Direction)`
 - `onAnimateOutEnd`: `maybe(Func)`
 - `active`: `maybe(Bool)`
-- `caption`: `maybe(Any)`
-- `__name__`: `CarouselItem`
+- `caption`: `maybe(Renderable)`
+- `children`: `Any`
 
-#### Col
+# Col
 
 `Col` is a `struct` with the following props:
 
-- `xsPush`: `maybe(Num)`
+- `xsPush`: `maybe(ColInt)`
+- `__tag__`: `Col`
+- `sm`: `maybe(ColInt)`
+- `md`: `maybe(ColInt)`
+- `lg`: `maybe(ColInt)`
+- `xsOffset`: `maybe(ColInt)`
+- `smOffset`: `maybe(ColInt)`
+- `mdOffset`: `maybe(ColInt)`
+- `lgOffset`: `maybe(ColInt)`
+- `xs`: `maybe(ColInt)`
+- `smPush`: `maybe(ColInt)`
+- `mdPush`: `maybe(ColInt)`
+- `lgPush`: `maybe(ColInt)`
+- `xsPull`: `maybe(ColInt)`
+- `smPull`: `maybe(ColInt)`
+- `mdPull`: `maybe(ColInt)`
+- `lgPull`: `maybe(ColInt)`
+- `className`: `maybe(ComponentClass)`
 - `children`: `Any`
-- `sm`: `maybe(Num)`
-- `md`: `maybe(Num)`
-- `lg`: `maybe(Num)`
-- `xsOffset`: `maybe(Num)`
-- `smOffset`: `maybe(Num)`
-- `mdOffset`: `maybe(Num)`
-- `lgOffset`: `maybe(Num)`
-- `xs`: `maybe(Num)`
-- `smPush`: `maybe(Num)`
-- `mdPush`: `maybe(Num)`
-- `lgPush`: `maybe(Num)`
-- `xsPull`: `maybe(Num)`
-- `smPull`: `maybe(Num)`
-- `mdPull`: `maybe(Num)`
-- `lgPull`: `maybe(Num)`
-- `className`: `maybe(Str)`
-- `__name__`: `Col`
 
-#### Str
-
-`Str` is a `irriducible`
-
- #### DropdownButton
+# DropdownButton
 
 `DropdownButton` is a `struct` with the following props:
 
-- `onSelect`: `maybe(Func)`
-- `children`: `Any`
-- `dropup`: `maybe(Bool)`
-- `title`: `maybe(Any)`
 - `href`: `maybe(Str)`
-- `onClick`: `maybe(Func)`
+- `__tag__`: `DropdownButton`
+- `bsSize`: `maybe(BsSize)`
 - `pullRight`: `maybe(Bool)`
+- `dropup`: `maybe(Bool)`
+- `title`: `maybe(Renderable)`
+- `bsStyle`: `maybe(ButtonBsStyle)`
+- `onClick`: `maybe(Func)`
+- `onSelect`: `maybe(Func)`
 - `navItem`: `maybe(Bool)`
 - `key`: `maybe(Key)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `DropdownButton`
+- `children`: `MenuItems`
 
-#### Key
+# MenuItems
 
-`Key` is a `union` of `Str, Num`
+`MenuItems` is a `list` of `MenuItem`
 
-#### DropdownMenu
+# MenuItem
+
+`MenuItem` is a `subtype` of `struct`
+
+# DropdownMenu
 
 `DropdownMenu` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `DropdownMenu`
 - `pullRight`: `maybe(Bool)`
 - `onSelect`: `maybe(Func)`
-- `__name__`: `DropdownMenu`
+- `children`: `Any`
 
-#### Glyphicon
+# Glyphicon
 
 `Glyphicon` is a `struct` with the following props:
 
+- `__tag__`: `Glyphicon`
 - `glyph`: `Glyph`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Glyphicon`
 
-#### Glyph
+# Glyph
 
 `Glyph` is an `enums` of:
 
@@ -446,26 +376,26 @@
 - `"zoom-in"`: `"zoom-in"`
 - `"zoom-out"`: `"zoom-out"`
 
-#### Grid
+# Grid
 
 `Grid` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `Grid`
 - `fluid`: `maybe(Bool)`
-- `className`: `maybe(Str)`
-- `__name__`: `Grid`
+- `className`: `maybe(ComponentClass)`
+- `children`: `Any`
 
-#### Input
+# Input
 
 `Input` is a `struct` with the following props:
 
 - `labelClassName`: `maybe(Str)`
-- `children`: `Any`
-- `label`: `maybe(Any)`
-- `help`: `maybe(Any)`
-- `addonBefore`: `maybe(Any)`
-- `addonAfter`: `maybe(Any)`
-- `bsStyle`: `maybe(InputStyle)`
+- `__tag__`: `Input`
+- `bsStyle`: `maybe(InputBsStyle)`
+- `label`: `maybe(Renderable)`
+- `help`: `maybe(Renderable)`
+- `addonBefore`: `maybe(Renderable)`
+- `addonAfter`: `maybe(Renderable)`
 - `hasFeedback`: `maybe(Bool)`
 - `groupClassName`: `maybe(Str)`
 - `wrapperClassName`: `maybe(Str)`
@@ -476,11 +406,11 @@
 - `value`: `maybe(Str)`
 - `defaultValue`: `maybe(Str)`
 - `ref`: `maybe(Str)`
+- `children`: `maybe(Renderable)`
 - `onClick`: `maybe(Func)`
 - `onChange`: `maybe(Func)`
-- `__name__`: `Input`
 
-#### InputType
+# InputType
 
 `InputType` is an `enums` of:
 
@@ -492,181 +422,171 @@
 - `"text"`: `"text"`
 - `"textarea"`: `"textarea"`
 
-#### InputStyle
-
-`InputStyle` is an `enums` of:
-
-- `"error"`: `"error"`
-- `"success"`: `"success"`
-- `"warning"`: `"warning"`
-
-#### Jumbotron
+# Jumbotron
 
 `Jumbotron` is a `struct` with the following props:
 
+- `__tag__`: `Jumbotron`
 - `children`: `Any`
-- `__name__`: `Jumbotron`
 
-#### Label
+# Label
 
 `Label` is a `struct` with the following props:
 
+- `__tag__`: `Label`
+- `className`: `ComponentClass`
 - `children`: `Any`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Label`
 
-#### MenuItem
+# ComponentClass
 
-`MenuItem` is a `struct` with the following props:
+`ComponentClass` is a `irriducible`
 
-- `children`: `Any`
-- `header`: `maybe(Bool)`
-- `divider`: `maybe(Bool)`
-- `href`: `maybe(Str)`
-- `title`: `maybe(Str)`
-- `onSelect`: `maybe(Func)`
-- `key`: `maybe(Key)`
-- `__name__`: `MenuItem`
-
-#### Modal
-
-`Modal` is a `struct` with the following props:
-
-- `animation`: `maybe(Bool)`
-- `children`: `Any`
-- `backdrop`: `maybe(Backdrop)`
-- `keyboard`: `maybe(Bool)`
-- `closeButton`: `maybe(Bool)`
-- `title`: `maybe(Any)`
-- `onRequestHide`: `Func`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Modal`
-
-#### Backdrop
-
-`Backdrop` is a `union` of `enums, Bool`
-
-#### enums
-
-`enums` is an `enums` of:
-
-- `"static"`: `"static"`
-
-#### Nav
+ # Nav
 
 `Nav` is a `struct` with the following props:
 
-- `onSelect`: `maybe(Func)`
-- `children`: `Any`
-- `bsStyle`: `maybe(NavStyle)`
-- `bsSize`: `maybe(BsSize)`
+- `collapsable`: `maybe(Bool)`
+- `__tag__`: `Nav`
 - `stacked`: `maybe(Bool)`
 - `justified`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `collapsable`: `maybe(Bool)`
+- `onSelect`: `maybe(Func)`
+- `bsStyle`: `maybe(NavBsStyle)`
 - `expanded`: `maybe(Bool)`
 - `defaultExpanded`: `maybe(Bool)`
 - `navbar`: `maybe(Bool)`
 - `activeKey`: `maybe(Key)`
-- `__name__`: `Nav`
+- `children`: `Any`
 
-#### NavStyle
-
-`NavStyle` is an `enums` of:
-
-- `"pills"`: `"pills"`
-- `"tabs"`: `"tabs"`
-
-#### Navbar
+# Navbar
 
 `Navbar` is a `struct` with the following props:
 
-- `toggleButton`: `maybe(Any)`
-- `children`: `Any`
+- `role`: `maybe(Str)`
+- `__tag__`: `Navbar`
 - `fixedBottom`: `maybe(Bool)`
 - `staticTop`: `maybe(Bool)`
 - `inverse`: `maybe(Bool)`
 - `fluid`: `maybe(Bool)`
-- `role`: `maybe(Str)`
-- `brand`: `maybe(Any)`
 - `fixedTop`: `maybe(Bool)`
+- `brand`: `maybe(Renderable)`
+- `toggleButton`: `maybe(Renderable)`
 - `onToggle`: `maybe(Func)`
 - `navExpanded`: `maybe(Bool)`
 - `defaultNavExpanded`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Navbar`
+- `children`: `Any`
 
-#### NavItem
+# NavItem
 
 `NavItem` is a `struct` with the following props:
 
-- `title`: `maybe(Str)`
-- `children`: `Any`
+- `__tag__`: `NavItem`
+- `onSelect`: `maybe(Func)`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `href`: `maybe(Str)`
-- `onSelect`: `maybe(Func)`
+- `title`: `maybe(Str)`
 - `key`: `maybe(Key)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `NavItem`
+- `children`: `Any`
 
-#### ModalTrigger
+# ModalTrigger
 
 `ModalTrigger` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `ModalTrigger`
 - `container`: `maybe(Mountable)`
-- `modal`: `Any`
-- `__name__`: `ModalTrigger`
+- `children`: `Any`
 
-#### Mountable
-
-`Mountable` is a `subtype` of `Any`
-
-#### OverlayTrigger
+# OverlayTrigger
 
 `OverlayTrigger` is a `struct` with the following props:
 
-- `delayHide`: `maybe(Num)`
-- `children`: `Any`
-- `trigger`: `maybe(union([TriggerA, list(TriggerB)]))`
-- `placement`: `maybe(Placement)`
-- `delay`: `maybe(Num)`
-- `delayShow`: `maybe(Num)`
+- `__tag__`: `OverlayTrigger`
 - `container`: `maybe(Mountable)`
+- `trigger`: `maybe(Trigger)`
+- `placement`: `maybe(Placement)`
+- `delay`: `maybe(PositiveInt)`
+- `delayShow`: `maybe(PositiveInt)`
+- `delayHide`: `maybe(PositiveInt)`
 - `defaultOverlayShown`: `maybe(Bool)`
-- `overlay`: `Any`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `OverlayTrigger`
+- `overlay`: `Renderable`
+- `children`: `Any`
 
-#### TriggerA
+# PageHeader
 
-`TriggerA` is an `enums` of:
+`PageHeader` is a `struct` with the following props:
 
-- `"click"`: `"click"`
-- `"focus"`: `"focus"`
-- `"hover"`: `"hover"`
-- `"manual"`: `"manual"`
+- `__tag__`: `PageHeader`
+- `children`: `Any`
 
-#### TriggerB
+# Panel
 
-`TriggerB` is an `enums` of:
+`Panel` is a `struct` with the following props:
 
-- `"click"`: `"click"`
-- `"focus"`: `"focus"`
-- `"hover"`: `"hover"`
+- `__tag__`: `Panel`
+- `bsStyle`: `maybe(PanelBsStyle)`
+- `header`: `maybe(Renderable)`
+- `footer`: `maybe(Renderable)`
+- `onClick`: `maybe(Func)`
+- `key`: `maybe(Key)`
+- `children`: `Any`
+- `collapsable`: `maybe(Bool)`
+- `defaultExpanded`: `maybe(Bool)`
+- `expanded`: `maybe(Bool)`
 
-#### Placement
+# PanelGroup
+
+`PanelGroup` is a `struct` with the following props:
+
+- `__tag__`: `PanelGroup`
+- `collapsable`: `maybe(Bool)`
+- `activeKey`: `maybe(Key)`
+- `defaultActiveKey`: `maybe(Key)`
+- `onSelect`: `maybe(Func)`
+- `accordion`: `maybe(Bool)`
+- `children`: `Panels`
+
+# Panels
+
+`Panels` is a `list` of `Panel`
+
+# PageItem
+
+`PageItem` is a `struct` with the following props:
+
+- `__tag__`: `PageItem`
+- `disabled`: `maybe(Bool)`
+- `previous`: `maybe(Bool)`
+- `next`: `maybe(Bool)`
+- `onSelect`: `maybe(Func)`
+- `href`: `maybe(Str)`
+- `children`: `Any`
+
+# Pager
+
+`Pager` is a `struct` with the following props:
+
+- `__tag__`: `Pager`
+- `onSelect`: `maybe(Func)`
+- `children`: `PageItems`
+
+# PageItems
+
+`PageItems` is a `list` of `PageItem`
+
+# Popover
+
+`Popover` is a `struct` with the following props:
+
+- `__tag__`: `Popover`
+- `placement`: `Placement`
+- `positionLeft`: `maybe(Num)`
+- `positionTop`: `maybe(Num)`
+- `arrowOffsetLeft`: `maybe(Num)`
+- `arrowOffsetTop`: `maybe(Num)`
+- `title`: `maybe(Renderable)`
+- `children`: `Any`
+
+# Placement
 
 `Placement` is an `enums` of:
 
@@ -675,196 +595,109 @@
 - `"right"`: `"right"`
 - `"top"`: `"top"`
 
-#### PageHeader
-
-`PageHeader` is a `struct` with the following props:
-
-- `children`: `Any`
-- `__name__`: `PageHeader`
-
-#### Panel
-
-`Panel` is a `struct` with the following props:
-
-- `bsStyle`: `maybe(BsStyle)`
-- `children`: `Any`
-- `footer`: `maybe(Any)`
-- `onClick`: `maybe(Func)`
-- `key`: `maybe(Key)`
-- `bsClass`: `maybe(BsClass)`
-- `header`: `maybe(Any)`
-- `bsSize`: `maybe(BsSize)`
-- `collapsable`: `maybe(Bool)`
-- `defaultExpanded`: `maybe(Bool)`
-- `expanded`: `maybe(Bool)`
-- `__name__`: `Panel`
-
-#### PanelGroup
-
-`PanelGroup` is a `struct` with the following props:
-
-- `children`: `Any`
-- `collapsable`: `maybe(Bool)`
-- `activeKey`: `Any`
-- `defaultActiveKey`: `Any`
-- `onSelect`: `maybe(Func)`
-- `accordion`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `PanelGroup`
-
-#### PageItem
-
-`PageItem` is a `struct` with the following props:
-
-- `children`: `Any`
-- `disabled`: `maybe(Bool)`
-- `previous`: `maybe(Bool)`
-- `next`: `maybe(Bool)`
-- `onSelect`: `maybe(Func)`
-- `href`: `maybe(Str)`
-- `__name__`: `PageItem`
-
-#### Pager
-
-`Pager` is a `struct` with the following props:
-
-- `children`: `Any`
-- `onSelect`: `maybe(Func)`
-- `__name__`: `Pager`
-
-#### Popover
-
-`Popover` is a `struct` with the following props:
-
-- `arrowOffsetTop`: `maybe(Num)`
-- `children`: `Any`
-- `positionLeft`: `maybe(Num)`
-- `positionTop`: `maybe(Num)`
-- `arrowOffsetLeft`: `maybe(Num)`
-- `placement`: `Placement`
-- `title`: `maybe(Any)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Popover`
-
-#### ProgressBar
+# ProgressBar
 
 `ProgressBar` is a `struct` with the following props:
 
-- `striped`: `maybe(Bool)`
-- `children`: `Any`
+- `__tag__`: `ProgressBar`
+- `bsStyle`: `BsStyle`
+- `min`: `maybe(Num)`
 - `now`: `maybe(Num)`
 - `max`: `maybe(Num)`
-- `label`: `maybe(Any)`
+- `label`: `Any`
 - `srOnly`: `maybe(Bool)`
-- `min`: `maybe(Num)`
+- `striped`: `maybe(Bool)`
 - `active`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `ProgressBar`
+- `children`: `Any`
 
-#### Row
+# BsStyle
+
+`BsStyle` is an `enums` of:
+
+- `"danger"`: `"danger"`
+- `"info"`: `"info"`
+- `"success"`: `"success"`
+- `"warning"`: `"warning"`
+
+# Row
 
 `Row` is a `struct` with the following props:
 
+- `__tag__`: `Row`
+- `className`: `maybe(ComponentClass)`
 - `children`: `Any`
-- `className`: `maybe(Str)`
-- `__name__`: `Row`
 
-#### SplitButton
+# SplitButton
 
 `SplitButton` is a `struct` with the following props:
 
-- `onSelect`: `maybe(Func)`
-- `children`: `Any`
-- `title`: `maybe(Any)`
 - `href`: `maybe(Str)`
-- `dropdownTitle`: `maybe(Any)`
-- `onClick`: `maybe(Func)`
-- `pullRight`: `maybe(Bool)`
-- `disabled`: `maybe(Bool)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
+- `__tag__`: `SplitButton`
 - `bsSize`: `maybe(BsSize)`
-- `__name__`: `SplitButton`
+- `pullRight`: `maybe(Bool)`
+- `title`: `maybe(Renderable)`
+- `bsStyle`: `maybe(ButtonBsStyle)`
+- `dropdownTitle`: `maybe(Renderable)`
+- `onClick`: `maybe(Func)`
+- `onSelect`: `maybe(Func)`
+- `disabled`: `maybe(Bool)`
+- `children`: `Any`
 
-#### SubNav
+# SubNav
 
 `SubNav` is a `struct` with the following props:
 
-- `title`: `maybe(Str)`
-- `children`: `Any`
+- `__tag__`: `SubNav`
+- `onSelect`: `maybe(Func)`
 - `active`: `maybe(Bool)`
 - `disabled`: `maybe(Bool)`
 - `href`: `maybe(Str)`
-- `onSelect`: `maybe(Func)`
-- `text`: `maybe(Any)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `SubNav`
+- `title`: `maybe(Str)`
+- `text`: `maybe(Renderable)`
+- `children`: `Any`
 
-#### TabbedArea
+# TabbedArea
 
 `TabbedArea` is a `struct` with the following props:
 
-- `children`: `Any`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(NavStyle)`
-- `bsSize`: `maybe(BsSize)`
+- `__tag__`: `TabbedArea`
+- `bsStyle`: `maybe(NavBsStyle)`
 - `animation`: `maybe(Bool)`
 - `onSelect`: `maybe(Func)`
 - `defaultActiveKey`: `maybe(Key)`
-- `__name__`: `TabbedArea`
+- `children`: `TabPanes`
 
-#### Table
+# TabPanes
+
+`TabPanes` is a `list` of `TabPane`
+
+# TabPane
+
+`TabPane` is a `struct` with the following props:
+
+- `__tag__`: `TabPane`
+- `key`: `maybe(Key)`
+- `tab`: `maybe(Str)`
+- `children`: `Any`
+
+# Table
 
 `Table` is a `struct` with the following props:
 
-- `children`: `Any`
+- `__tag__`: `Table`
 - `striped`: `maybe(Bool)`
 - `bordered`: `maybe(Bool)`
 - `condensed`: `maybe(Bool)`
 - `hover`: `maybe(Bool)`
 - `responsive`: `maybe(Bool)`
-- `__name__`: `Table`
-
-#### TabPane
-
-`TabPane` is a `struct` with the following props:
-
 - `children`: `Any`
-- `key`: `maybe(Key)`
-- `tab`: `maybe(Str)`
-- `__name__`: `TabPane`
 
-#### Tooltip
-
-`Tooltip` is a `struct` with the following props:
-
-- `children`: `Any`
-- `placement`: `maybe(Placement)`
-- `positionLeft`: `maybe(Num)`
-- `positionTop`: `maybe(Num)`
-- `arrowOffsetLeft`: `maybe(Num)`
-- `arrowOffsetTop`: `maybe(Num)`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
-- `bsSize`: `maybe(BsSize)`
-- `__name__`: `Tooltip`
-
-#### Well
+# Well
 
 `Well` is a `struct` with the following props:
 
-- `children`: `Any`
-- `bsClass`: `maybe(BsClass)`
-- `bsStyle`: `maybe(BsStyle)`
+- `__tag__`: `Well`
 - `bsSize`: `maybe(BsSize)`
-- `__name__`: `Well`
+- `children`: `Any`
 
 

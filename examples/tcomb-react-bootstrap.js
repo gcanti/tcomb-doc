@@ -3,7 +3,7 @@ var doc = require('../index');
 var components = require('../../tcomb-react-bootstrap/index');
 var domain = {};
 Object.keys(components).forEach(function (c) {
-  domain[c] = components[c].Model;
+  domain[c] = components[c].type;
 });
 
 var result = doc.parse(domain);
