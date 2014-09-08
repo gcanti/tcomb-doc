@@ -44,7 +44,7 @@ function toMarkdown(json) {
         md += p('`%s` is a `maybe(%s)`', name, type.type);
         break;
       case 'subtype' :
-        md += p('`%s` is a `subtype` of `%s`', name, type.type);
+        md += p('`%s` is a `subtype` of `%s` such that: %s', name, type.type, type.predicate);
         break;
       case 'list' :
         md += p('`%s` is a `list` of `%s`', name, type.type);

@@ -76,7 +76,7 @@ function parseType(T, index) {
         index[name] = domain.Subtype({
           name: name,
           type: getName(T.meta.type),
-          predicate: T.meta.predicate.__doc__ || T.meta.predicate.name || 'function'
+          predicate: T.meta.predicate.__doc__ || T.meta.predicate.name || 'unspecified'
         });
       }
       parseType(T.meta.type, index);
