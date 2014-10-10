@@ -16,9 +16,17 @@
   },
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "dependencies": {
-    "tcomb": "~0.2.0"
+    "tcomb": "~0.2.0",
+    "escodegen": "~1.4.1",
+    "esprima": "~1.2.2",
+    "estraverse": "~1.5.1"
   },
   "tags": [
+    "tcomb",
+    "documentation",
+    "tool"
+  ],
+  "keywords": [
     "tcomb",
     "documentation",
     "tool"

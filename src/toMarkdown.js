@@ -25,20 +25,17 @@ function ul(lis) {
 
 function toMarkdown(json) {
   var md = '';
-  json.forEach(function (type) {
+  var names = Object.keys(json).sort();
+  names.forEach(function (name) {
+    var type = json[name];
     var kind = type.kind;
-    var name = type.name;
     md += h1(name);
     switch(kind) {
       case 'struct' :
-        if (type.props.length) {
-          md += p('`%s` is a `struct` with the following props:', name);
-          md += ul(type.props.sort().map(function (prop) {
-            return format('`%s`: `%s`', prop.name, prop.type);
-          }));
-        } else {
-          md += p('`%s` is a `struct` with no props.', name);
-        }
+        md += p('`%s` is a `struct` with the following props:', name);
+        md += ul(Object.keys(type.props).sort().map(function (name) {
+          return format('`%s`: `%s`', name, type.props[name].name);
+        }));
         break;
       case 'maybe' :
         md += p('`%s` is a `maybe(%s)`', name, type.type);
@@ -51,15 +48,19 @@ function toMarkdown(json) {
         break;
       case 'enums' :
         md += p('`%s` is an `enums` of:', name);
-        md += ul(Object.keys(type.enums).sort().map(function (k) {
-          return format('`"%s"`: `%j`', k, type.enums[k]);
+        md += ul(Object.keys(type.map).sort().map(function (k) {
+          return format('`"%s"`: `%j`', k, type.map[k]);
         }));
         break;
       case 'tuple' :
-        md += p('`%s` is a `tuple` of `%s`', name, type.types.join(', '));
+        md += p('`%s` is a `tuple` of `%s`', name, type.types.map(function (type) {
+          return type.name;
+        }).join(', '));
         break;
       case 'union' :
-        md += p('`%s` is a `union` of `%s`', name, type.types.join(', '));
+        md += p('`%s` is a `union` of `%s`', name, type.types.map(function (type) {
+          return type.name;
+        }).join(', '));
         break;
       case 'dict' :
         md += p('`%s` is a `dict` of `%s`', name, type.type);

@@ -1,5 +1,5 @@
 module.exports = {
-  domain: require('./src/domain'),
-  parse: require('./src/parser'),
-  toMarkdown: require('./src/toMarkdown')
+  parse: require('./src/runtime-parser'),
+  toMarkdown: require('./src/toMarkdown'),
+  tcombgen: require('./src/tcombgen');
 };
