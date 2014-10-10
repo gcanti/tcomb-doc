@@ -7,6 +7,7 @@ var Str = t.Str;
 var Num = t.Num;
 var Bool = t.Bool;
 var Nil = t.Nil;
+var getKind = t.util.getKind;
 
 //
 // setup
@@ -64,11 +65,19 @@ describe('parse', function () {
   });
 
   it('should handle list', function () {
-    var json = parse(t.list(MyIrriducible));
+    var json = parse(t.list(MyIrriducible, 'Main'));
     eq(json, {
       'MyIrriducible': {
         kind: 'irriducible',
         name: 'MyIrriducible'
+      },
+      'Main': {
+        kind: 'list',
+        name: 'Main',
+        type: {
+          kind: 'irriducible',
+          name: 'MyIrriducible'
+        }
       }
     });
     json = parse(t.list(MyIrriducible, 'MyList'));
@@ -249,8 +258,7 @@ describe('parse', function () {
 
 describe('parse', function () {
 
-  var JSONValue = require('../src/guesser').JSONValue;
-  var guess = require('../src/guesser').guess;
+  var guess = require('../src/guesser');
 
   it('should handle strings', function () {
     var type = guess('a');
@@ -269,21 +277,24 @@ describe('parse', function () {
 
   it('should handle null', function () {
     var type = guess(null);
-    ok(type === JSONValue);
+    ok(type === Nil);
   });
 
   describe('arrays', function () {
 
     it('should handle arrays with length 0', function () {
       var type = guess([]);
-      eq(t.util.getKind(type), 'list');
-      ok(type.meta.type === JSONValue);
+      eq(getKind(type), 'list');
+      ok(type.meta.type === Nil);
     });
 
     it('should handle arrays with length > 0', function () {
       var type = guess(['a']);
-      eq(t.util.getKind(type), 'list');
+      eq(getKind(type), 'list');
       ok(type.meta.type === Str);
+      type = guess([{a: 1}, {a: 2}]);
+      eq(getKind(type), 'list');
+      eq(getKind(type.meta.type), 'struct');
     });
 
   });
@@ -292,20 +303,20 @@ describe('parse', function () {
 
     it('should handle objects with no properties', function () {
       var type = guess({});
-      eq(t.util.getKind(type), 'struct');
+      eq(getKind(type), 'struct');
       eq(Object.keys(type.meta.props).length, 0);
     });
 
     it('should handle objects with properties', function () {
       var type = guess({a: 1});
-      eq(t.util.getKind(type), 'struct');
+      eq(getKind(type), 'struct');
       eq(type.meta.props, {a: Num});
     });
 
     it('should handle nested structures', function () {
       var type = guess({a: [1]});
-      eq(t.util.getKind(type), 'struct');
-      eq(t.util.getKind(type.meta.props.a), 'list');
+      eq(getKind(type), 'struct');
+      eq(getKind(type.meta.props.a), 'list');
       eq(type.meta.props.a.meta.name, 'A');
     });
 

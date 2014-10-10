@@ -1,5 +1,6 @@
 module.exports = {
   parse: require('./src/runtime-parser'),
   toMarkdown: require('./src/toMarkdown'),
-  tcombgen: require('./src/tcombgen');
+  tcombgen: require('./src/tcombgen'),
+  guesser: require('./src/guesser')
 };

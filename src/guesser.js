@@ -14,8 +14,6 @@ var struct = t.struct;
 var maybe = t.maybe;
 var union = t.union;
 
-var JSONValue = union([Str, Num, Bool], 'JSONValue');
-
 function getTypeName(name) {
   var chars = name.split('');
   chars[0] = chars[0].toUpperCase();
@@ -34,13 +32,12 @@ function guess(x, name) {
   } else if (Bool.is(x)) {
     return Bool;
   } else if (Nil.is(x)) {
-    return JSONValue;
+    return Nil;
   } else if (Arr.is(x)) {
     if (x.length === 0) {
-      return list(JSONValue, name);
-    } else {
-      return list(guess(x[0]), name);
+      return list(Nil, name);
     }
+    return list(guess(x[0], 'Item'), name);
   }
   var props = {};
   for (var k in x) {
@@ -51,7 +48,4 @@ function guess(x, name) {
   return struct(props, name);
 }
 
-module.exports = {
-  JSONValue: JSONValue,
-  guess: guess
-};
+module.exports = guess;

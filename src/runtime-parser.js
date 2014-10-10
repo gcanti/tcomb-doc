@@ -76,16 +76,14 @@ function parseType(x, types) {
 
 function parse(x, types) {
   types = types || {};
-  if (t.Obj.is(x)) {
+  if (t.util.isType(x)) {
+    parseType(x, types);
+  } else if (t.Obj.is(x)) {
     // module
     for (var k in x) {
       if (x.hasOwnProperty(k)) {
         parse(x[k], types);
       }
-    }
-  } else {
-    if (t.util.isType(x)) {
-      parseType(x, types);
     }
   }
   return types;

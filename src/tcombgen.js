@@ -219,7 +219,7 @@ Subtype.prototype.toJSON = function() {
 
 var Struct = struct({
   name: Str,
-  props: dict(t.Type)
+  props: t.dict(Type)
 });
 
 Struct.prototype.toAST = function() {
