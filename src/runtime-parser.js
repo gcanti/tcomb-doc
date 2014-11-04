@@ -40,12 +40,15 @@ function parseType(x, types) {
       return type;
     case 'maybe' :
     case 'list' :
-    case 'dict' :
     case 'subtype' :
       type.type = parseType(x.meta.type, types);
       if (kind === 'subtype') {
         type.predicate = x.meta.predicate.__doc__ || x.meta.predicate.name || 'unspecified';
       }
+      break;      
+    case 'dict' :
+      type.domain = parseType(x.meta.domain, types);
+      type.codomain = parseType(x.meta.codomain, types);
       break;      
     case 'tuple' :
     case 'union' :
@@ -76,7 +79,7 @@ function parseType(x, types) {
 
 function parse(x, types) {
   types = types || {};
-  if (t.util.isType(x)) {
+  if (t.Type.is(x)) {
     parseType(x, types);
   } else if (t.Obj.is(x)) {
     // module

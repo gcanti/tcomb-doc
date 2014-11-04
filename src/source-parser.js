@@ -22,10 +22,15 @@ var managers = {
     switch (kind) {
       case 'maybe' :
       case 'list' :
-      case 'dict' :
         return {
           kind: kind,
           type: getType(node.arguments[0])
+        };
+      case 'dict' :
+        return {
+          kind: kind,
+          domain: getType(node.arguments[0]),
+          codomain: getType(node.arguments[1])
         };
       case 'union' :
         return {

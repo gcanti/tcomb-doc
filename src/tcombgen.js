@@ -8,9 +8,6 @@ var list = t.list;
 var maybe = t.maybe;
 var struct = t.struct;
 
-// TODO remove once tcomb 0.3.0 lands
-var Type = t.irriducible('Type', t.util.isType);
-
 //
 // AST helpers
 //
@@ -123,12 +120,14 @@ List.prototype.toAST = function() {
 //
 
 var Dict = struct({
-  type: Str
+  domain: Str,
+  codomain: Str
 });
 
 Dict.prototype.toAST = function() {
   return callExpression('dict', [
-    identifier(this.type)
+    identifier(this.domain),
+    identifier(this.codomain)
   ]);
 };
 
@@ -219,7 +218,7 @@ Subtype.prototype.toJSON = function() {
 
 var Struct = struct({
   name: Str,
-  props: t.dict(Type)
+  props: t.dict(Str, Type)
 });
 
 Struct.prototype.toAST = function() {

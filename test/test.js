@@ -98,14 +98,14 @@ describe('parse', function () {
   });
 
   it('should handle dict', function () {
-    var json = parse(t.dict(MyIrriducible));
+    var json = parse(t.dict(Str, MyIrriducible));
     eq(json, {
       'MyIrriducible': {
         kind: 'irriducible',
         name: 'MyIrriducible'
       }
     });
-    json = parse(t.dict(MyIrriducible, 'MyDict'));
+    json = parse(t.dict(Str, MyIrriducible, 'MyDict'));
     eq(json, {
       'MyIrriducible': {
         kind: 'irriducible',
@@ -114,7 +114,11 @@ describe('parse', function () {
       'MyDict': {
         kind: 'dict',
         name: 'MyDict',
-        type: {
+        domain: {
+          kind: 'irriducible',
+          name: 'Str'
+        },
+        codomain: {
           kind: 'irriducible',
           name: 'MyIrriducible'
         }
