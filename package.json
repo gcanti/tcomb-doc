@@ -1,7 +1,7 @@
 {
   "name": "tcomb-doc",
-  "version": "0.2.3",
-  "description": "Documentation tool for Domain Driven Design",
+  "version": "1.0.0",
+  "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
     "playground": "watchify playground/playground.src.js -o playground/playground.js -v"
@@ -22,7 +22,7 @@
     "marked": "~0.3.2"
   },
   "dependencies": {
-    "tcomb": "^0.3.1",
+    "tcomb": "^1.0.0",
     "escodegen": "~1.4.1",
     "esprima": "~1.2.2",
     "estraverse": "~1.5.1"
