@@ -19,7 +19,6 @@
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "devDependencies": {
     "marked": "^0.3.3",
-    "mocha": "^2.2.1",
     "react": "^0.13.1",
     "tcomb-form": "^0.4.4"
   },

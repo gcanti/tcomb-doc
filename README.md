@@ -4,7 +4,7 @@ Documentation tool for [tcomb](https://github.com/gcanti/tcomb)
 
 ## inspect(module: Object | Type): JSON
 
-Return a JSON containing all the types found in the module `module`.
+Returns a JSON containing all the types found in the module `module`.
 
 **Example**
 
@@ -52,7 +52,7 @@ Output
 
 ## toMarkdown(json: JSON): string
 
-Given the output of `inspect`, returns a markdown containing all the types found in the JSON.
+Given the output of `inspect`, returns a markdown containing all the types found in `json`.
 
 **Example**
 
@@ -84,9 +84,11 @@ Output
 `function (n) { return n > 0 && n % 1 === 0; }`
 ```
 
+For a more complex example, see the markdown generated for the [`api.js` module of tcomb-form](examples/tcomb-form.md)
+
 ## guess(json: JSON): Type
 
-Given a JSON try to guess a suitable tcomb's type.
+Given a JSON tries to guess a suitable tcomb's type.
 
 **Example**
 
