@@ -1,9 +1,10 @@
 {
   "name": "tcomb-doc",
-  "version": "1.0.0",
+  "version": "0.3.0",
   "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
+    "test": "mocha",
     "playground": "watchify playground/playground.src.js -o playground/playground.js -v"
   },
   "repository": {
@@ -17,15 +18,15 @@
   },
   "homepage": "https://github.com/gcanti/tcomb-doc",
   "devDependencies": {
-    "tcomb-form": "^0.1.5",
-    "react": "^0.12.0",
-    "marked": "~0.3.2"
+    "marked": "^0.3.3",
+    "mocha": "^2.2.1",
+    "react": "^0.13.1",
+    "tcomb-form": "^0.4.4"
   },
   "dependencies": {
-    "tcomb": "^1.0.0",
-    "escodegen": "~1.4.1",
-    "esprima": "~1.2.2",
-    "estraverse": "~1.5.1"
+    "esprima": "^2.1.0",
+    "estraverse": "^3.1.0",
+    "tcomb": "^1.0.0"
   },
   "tags": [
     "tcomb",
