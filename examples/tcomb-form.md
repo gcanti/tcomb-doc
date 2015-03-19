@@ -1,3 +1,5 @@
+> This is the output of tcomb-doc running on https://github.com/gcanti/tcomb-form/blob/master/lib/api.js
+
 **Auto**
 
 `Auto` is an `enums` of:
@@ -36,7 +38,7 @@
 
 **Error**
 
-`Error` is a `union` of Label, Func
+`Error` is a `union` of `Label`, `Func`
 
 **I18n**
 
@@ -50,7 +52,7 @@
 
 **Label**
 
-`Label` is a `union` of Str, ReactElement
+`Label` is a `union` of `Str`, `ReactElement`
 
 **List**
 
@@ -73,7 +75,7 @@
 
 **NullOption**
 
-`NullOption` is a `union` of Option, Bool
+`NullOption` is a `union` of `Option`, `Bool`
 
 **OptGroup**
 
@@ -148,11 +150,11 @@ function (object) {
 
 **SelectOption**
 
-`SelectOption` is a `union` of Option, OptGroup
+`SelectOption` is a `union` of `Option`, `OptGroup`
 
 **SelectValue**
 
-`SelectValue` is a `union` of Str, Array<Str>
+`SelectValue` is a `union` of `Str`, `Array<Str>`
 
 **Struct**
 

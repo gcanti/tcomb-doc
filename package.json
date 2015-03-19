@@ -4,7 +4,6 @@
   "description": "Documentation tool for tcomb",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
     "playground": "watchify playground/playground.src.js -o playground/playground.js -v"
   },
   "repository": {

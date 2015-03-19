@@ -11,9 +11,9 @@ Returns a JSON containing all the types found in the module `module`.
 Input
 
 ```js
-var parse = require('tcomb-doc').parse;
+var inspect = require('tcomb-doc').inspect;
 
-parse({
+inspect({
   Positive: t.subtype(t.Num, function (n) { return n > 0; }, 'Positive'),
   PositiveInteger: t.subtype(t.Num, function (n) { return n > 0 && n % 1 === 0; }, 'PositiveInteger')
 })
@@ -50,22 +50,28 @@ Output
 }
 ```
 
-## toMarkdown(json: JSON): string
+## toMarkdown(json: JSON, options?: Object): string
 
 Given the output of `inspect`, returns a markdown containing all the types found in `json`.
+
+## Options
+
+- `title?: string`: format of the titles, default = `"# %s"` (`h1` tags in markdown)
 
 **Example**
 
 Input
 
 ```js
-var parse = require('tcomb-doc').parse;
+var inspect = require('tcomb-doc').inspect;
 var toMarkdown = require('tcomb-doc').toMarkdown;
 
-toMarkdown(parse({
+toMarkdown(inspect({
   Positive: t.subtype(t.Num, function (n) { return n > 0; }, 'Positive'),
   PositiveInteger: t.subtype(t.Num, function (n) { return n > 0 && n % 1 === 0; }, 'PositiveInteger')
-}))
+}), {
+  title: '**%s**' // bolded titles
+})
 ```
 
 Output
@@ -109,5 +115,5 @@ t.struct({
   name: t.Str,
   surname: t.Str,
   age: t.Num
-});
+})
 ```
