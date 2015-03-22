@@ -1,6 +1,6 @@
 v0.3.0
 
-- toMarkdown
+- `toMarkdown`
   - subtypes now show the predicate code
 
 **BREAKING**

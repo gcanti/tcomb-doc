@@ -54,7 +54,7 @@ Output
 
 Given the output of `inspect`, returns a markdown containing all the types found in `json`.
 
-## Options
+### Options
 
 - `title?: string`: format of the titles, default = `"# %s"` (`h1` tags in markdown)
 
