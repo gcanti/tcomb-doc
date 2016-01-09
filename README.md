@@ -2,118 +2,285 @@ Documentation tool for [tcomb](https://github.com/gcanti/tcomb)
 
 # API
 
-## inspect(module: Object | Type): JSON
+## toObject
 
-Returns a JSON containing all the types found in the module `module`.
+**Signature**
+
+```js
+toObject(types: TcombType | Array<TcombType>) => JSON blob / JavaScript object
+```
 
 **Example**
 
-Input
-
 ```js
-var inspect = require('tcomb-doc').inspect;
+import t from 'tcomb'
+import { toObject } from 'tcomb-doc'
 
-inspect({
-  Positive: t.subtype(t.Num, function (n) { return n > 0; }, 'Positive'),
-  PositiveInteger: t.subtype(t.Num, function (n) { return n > 0 && n % 1 === 0; }, 'PositiveInteger')
-})
+const Person = t.struct({
+  name: t.String,
+  age: t.maybe(t.Number)
+}, 'User')
+
+console.log(JSON.stringify(toObject(Person), null, 2))
 ```
 
-Output
+**Output**
 
-```json
+```js
 {
-  "Positive": {
-    "kind": "subtype",
-    "name": "Positive",
-    "type": {
+  "kind": "struct",
+  "name": "User",
+  "required": true,
+  "props": {
+    "name": {
       "kind": "irreducible",
-      "name": "Num"
+      "name": "String",
+      "required": true
     },
-    "predicate": {
-      "name": "<function1>",
-      "code": "function (n) { return n > 0; }"
-    }
-  },
-  "PositiveInteger": {
-    "kind": "subtype",
-    "name": "PositiveInteger",
-    "type": {
+    "age": {
       "kind": "irreducible",
-      "name": "Num"
-    },
-    "predicate": {
-      "name": "<function1>",
-      "code": "function (n) { return n > 0 && n % 1 === 0; }"
+      "name": "Number",
+      "required": false
     }
   }
 }
 ```
 
-## toMarkdown(json: JSON, options?: Object): string
+## Output format
 
-Given the output of `inspect`, returns a markdown containing all the types found in `json`.
+### Irriducible
 
-### Options
-
-- `title?: string`: format of the titles, default = `"# %s"` (`h1` tags in markdown)
-
-**Example**
-
-Input
+**Source**
 
 ```js
-var inspect = require('tcomb-doc').inspect;
-var toMarkdown = require('tcomb-doc').toMarkdown;
-
-toMarkdown(inspect({
-  Positive: t.subtype(t.Num, function (n) { return n > 0; }, 'Positive'),
-  PositiveInteger: t.subtype(t.Num, function (n) { return n > 0 && n % 1 === 0; }, 'PositiveInteger')
-}), {
-  title: '**%s**' // bolded titles
-})
+t.String
 ```
 
-Output
+**Output**
 
-```markdown
-**Positive**
-
-`Positive` is a `subtype` of Num with predicate:
-
-`function (n) { return n > 0; }`
-
-**PositiveInteger**
-
-`PositiveInteger` is a `subtype` of Num with predicate:
-
-`function (n) { return n > 0 && n % 1 === 0; }`
-```
-
-For a more complex example, see the markdown generated for the [`api.js` module of tcomb-form](examples/tcomb-form.md)
-
-## guess(json: JSON): Type
-
-Given a JSON tries to guess a suitable tcomb's type.
-
-**Example**
-
-Input
-
-```json
+```js
 {
-  "name": "Giulio",
-  "surname": "Canti",
-  "age": 41
+  "kind": "irreducible",
+  "required": true,
+  "name": "String",
+  "predicate": "<function reference>"
 }
 ```
 
-Output
+### Refinement
+
+**Source**
 
 ```js
-t.struct({
-  name: t.Str,
-  surname: t.Str,
-  age: t.Num
-})
+const Password = t.refinement(t.String, (s) => s.length >= 6, 'Password')
+```
+
+**Output**
+
+```js
+{
+  "kind": "refinement",
+  "required": true,
+  "name": "Password",
+  "type": {
+    "kind": "irreducible",
+    "name": "String",
+    "required": true,
+    "predicate": "<function reference>"
+  },
+  "predicate": "<function reference>"
+}
+```
+
+### Maybe
+
+**Source**
+
+```js
+const MaybeString = t.maybe(t.String)
+```
+
+**Output**
+
+```js
+{
+  "kind": "irreducible",
+  "required": false,
+  "name": "String",
+  "predicate": "<function reference>"
+}
+```
+
+### Enum
+
+**Source**
+
+```js
+const Country = t.enums({
+  IT: 'Italy',
+  US: 'United States'
+}, 'Country')
+```
+
+**Output**
+
+```js
+{
+  "kind": "enums",
+  "required": false,
+  "name": "Country",
+  "map": {
+    IT: 'Italy',
+    US: 'United States'
+  }
+}
+```
+
+### Struct
+
+**Source**
+
+```js
+const Person = t.struct({
+  name: t.String,
+  age: t.Number
+}, 'Person')
+```
+
+**Output**
+
+```js
+{
+  "kind": "struct",
+  "required": false,
+  "name": "Person",
+  "props": {
+    "name": {
+      "kind": "irreducible",
+      "required": true,
+      "name": "String",
+      "predicate": "<function reference>"
+    },
+    ...
+  }
+}
+```
+
+### List
+
+**Source**
+
+```js
+const Tags = t.list(t.String, 'Tags')
+```
+
+**Output**
+
+```js
+{
+  "kind": "list",
+  "required": true,
+  "name": "Tags",
+  "type": {
+    "kind": "irreducible",
+    "name": "String",
+    "required": true,
+    "predicate": "<function reference>"
+  }
+}
+```
+
+### Tuple
+
+**Source**
+
+```js
+const Tuple = t.tuple([t.String, t.Number], 'Tuple')
+```
+
+**Output**
+
+```js
+{
+  "kind": "tuple",
+  "name": "Tuple",
+  "required": true,
+  "types": [
+    {
+      "kind": "irreducible",
+      "required": true,
+      "name": "String",
+      "predicate": "<function reference>"
+    },
+    {
+      "kind": "irreducible",
+      "required": true,
+      "name": "Number",
+      "predicate": "<function reference>"
+    }
+  ]
+}
+```
+
+### Union
+
+**Source**
+
+```js
+const Union = t.union([t.String, t.Number], 'Union')
+```
+
+**Output**
+
+```js
+{
+  "kind": "union",
+  "name": "Union",
+  "required": true,
+  "types": [
+    {
+      "kind": "irreducible",
+      "required": true,
+      "name": "String",
+      "predicate": "<function reference>"
+    },
+    {
+      "kind": "irreducible",
+      "required": true,
+      "name": "Number",
+      "predicate": "<function reference>"
+    }
+  ],
+  "dispatch": "<function reference>"
+}
+```
+
+### Dict
+
+**Source**
+
+```js
+const Dict = t.dict(t.String, t.Number, 'Dict')
+```
+
+**Output**
+
+```js
+{
+  "kind": "dict",
+  "name": "Dict",
+  "required": true,
+  "domain": {
+    "kind": "irreducible",
+    "required": true,
+    "name": "String",
+    "predicate": "<function reference>"
+    },
+    "codomain": {
+      "kind": "irreducible",
+      "required": true,
+      "name": "Number",
+      "predicate": "<function reference>"
+    }
+}
 ```
