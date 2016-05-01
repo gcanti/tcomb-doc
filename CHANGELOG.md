@@ -12,6 +12,11 @@
 **Note**: Gaps between patch versions are faulty/broken releases.
 **Note**: A feature tagged as Experimental is in a high state of flux, you're at risk of it changing without notice.
 
+# v0.5.1
+
+- **New Feature**
+  - support tcomb's `interface` combinator
+
 # v0.5.0
 
 **Warning**. If you don't rely in your codebase on the property `maybe(MyType)(undefined) === null` this **is not a breaking change** for you.
