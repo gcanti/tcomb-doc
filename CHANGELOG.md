@@ -15,7 +15,7 @@
 # v0.5.1
 
 - **New Feature**
-  - support tcomb's `interface` combinator
+  - support `tcomb` ^3.1.0, fix #6
 
 # v0.5.0
 

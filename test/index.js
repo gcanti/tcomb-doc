@@ -64,6 +64,37 @@ test('struct', function (assert) {
     "kind": "struct",
     "required": true,
     "name": "Person",
+    "strict": false,
+    "props": {
+      "name": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "String",
+        "predicate": t.String.meta.predicate
+      },
+      "age": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "Number",
+        "predicate": t.Number.meta.predicate
+      }
+    }
+  };
+  var actual = toObject(Person);
+  assert.deepEqual(actual, expected);
+});
+
+test('struct (strict)', function (assert) {
+  assert.plan(1);
+  var Person = t.struct({
+    name: t.String,
+    age: t.Number
+  }, { name: 'Person', strict: true });
+  var expected = {
+    "kind": "struct",
+    "required": true,
+    "name": "Person",
+    "strict": true,
     "props": {
       "name": {
         "kind": "irreducible",
@@ -279,6 +310,37 @@ test('interface', function (assert) {
     "kind": "interface",
     "required": true,
     "name": "Person",
+    "strict": false,
+    "props": {
+      "name": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "String",
+        "predicate": t.String.meta.predicate
+      },
+      "age": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "Number",
+        "predicate": t.Number.meta.predicate
+      }
+    }
+  };
+  var actual = toObject(Person);
+  assert.deepEqual(actual, expected);
+});
+
+test('interface (strict)', function (assert) {
+  assert.plan(1);
+  var Person = t.inter({
+    name: t.String,
+    age: t.Number
+  }, { name: 'Person', strict: true });
+  var expected = {
+    "kind": "interface",
+    "required": true,
+    "name": "Person",
+    "strict": true,
     "props": {
       "name": {
         "kind": "irreducible",
