@@ -1,6 +1,6 @@
 {
   "name": "tcomb-doc",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Documentation tool for tcomb",
   "main": "lib/index.js",
   "files": [
