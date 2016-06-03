@@ -78,7 +78,8 @@ test('struct', function (assert) {
         "name": "Number",
         "predicate": t.Number.meta.predicate
       }
-    }
+    },
+    "defaultProps": {}
   };
   var actual = toObject(Person);
   assert.deepEqual(actual, expected);
@@ -108,6 +109,40 @@ test('struct (strict)', function (assert) {
         "name": "Number",
         "predicate": t.Number.meta.predicate
       }
+    },
+    "defaultProps": {}
+  };
+  var actual = toObject(Person);
+  assert.deepEqual(actual, expected);
+});
+
+test('struct (default props)', function (assert) {
+  assert.plan(1);
+  var Person = t.struct({
+    name: t.String,
+    age: t.Number
+  }, { name: 'Person', defaultProps: { name: 'Giulio' } } );
+  var expected = {
+    "kind": "struct",
+    "required": true,
+    "name": "Person",
+    "strict": false,
+    "props": {
+      "name": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "String",
+        "predicate": t.String.meta.predicate
+      },
+      "age": {
+        "kind": "irreducible",
+        "required": true,
+        "name": "Number",
+        "predicate": t.Number.meta.predicate
+      }
+    },
+    "defaultProps": {
+      "name": "Giulio"
     }
   };
   var actual = toObject(Person);
